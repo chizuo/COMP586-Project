@@ -3,7 +3,7 @@
 ### Contributors: 
 - [Jacob Asaad](https://github.com/Jacob-Asaad)
 - [Jonathan Chua](https://github.com/chizuo)
-- [Harshleen Sadnani](https://github.com/harshleen8) 
+- [Harshleen Sadhnani](https://github.com/harshleen8) 
 - [Brandon Sorto](https://github.com/Brandon-CSUN)
 
 Repository for the supporting documentation of the term project. 
