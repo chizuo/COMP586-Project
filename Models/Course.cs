@@ -15,23 +15,20 @@ namespace Registration.Models
 
         public string deptName;
         public int courseNumber;
+        public string concatDeptNameAndCourseNumber;
         public string courseDescription;
         public List<Course> preRequisites;
         public List<Course> courseRequisites;
 
-        public Course(string deptName, int courseNumber, string courseDescription, List<Course> preReq, List<Course> coReq)
+        public Course(string deptName, int courseNumber, string concatDeptNameAndCourseNumber, string courseDescription, List<Course> preReq, List<Course> coReq)
         {
             this.deptName = deptName;
             this.courseNumber = courseNumber;
+            this.concatDeptNameAndCourseNumber = deptName + " " + concatDeptNameAndCourseNumber;
             this.courseDescription = courseDescription;
             this.preRequisites = preReq;
             this.courseRequisites = coReq;
-        }
 
-        public string concatName
-        {
-            get { return deptName + courseNumber.ToString(); }
         }
-
     }
 }
