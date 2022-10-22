@@ -104,6 +104,9 @@ namespace Registration.Models
             this.zip = zip;
         }
         
+
+        public void addPerson(/*take a Person object and store in DataStructure*/) {}
+        public void removePerson(/*take a Person object and remove it from DataStructure*/){}
         
        
 
