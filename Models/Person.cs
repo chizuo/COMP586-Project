@@ -48,6 +48,6 @@ namespace Registration.Models
             this.phoneNumber = phoneNumber;
         }
 
-        public abstract Boolean availability(Course course);
+        public abstract Boolean availability(Section section);
     }
 }
