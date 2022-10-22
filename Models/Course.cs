@@ -18,7 +18,7 @@ namespace Registration.Models
         public string concatDeptNameAndCourseNumber;
         public string courseDescription;
         public List<Course> preRequisites;
-        public List<Course> courseRequisites;
+        public List<Course> coRequisites;
 
         public Course(string deptName, int courseNumber, string concatDeptNameAndCourseNumber, string courseDescription, List<Course> preReq, List<Course> coReq)
         {
@@ -27,7 +27,7 @@ namespace Registration.Models
             this.concatDeptNameAndCourseNumber = deptName + " " + concatDeptNameAndCourseNumber;
             this.courseDescription = courseDescription;
             this.preRequisites = preReq;
-            this.courseRequisites = coReq;
+            this.coRequisites = coReq;
 
         }
     }
