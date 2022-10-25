@@ -1,6 +1,3 @@
-using Microsoft.VisualBasic;
-using System.ComponentModel.DataAnnotations;
-
 namespace Registration.Models
 {
     public class Student : Person
@@ -11,6 +8,6 @@ namespace Registration.Models
 
         public void calculateGPA()
         {
-            
+
         }
     }

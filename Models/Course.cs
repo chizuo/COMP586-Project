@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Registration.Models
 {
     public class Course
