@@ -111,9 +111,19 @@ namespace Registration.Models
 
         public void generateAddNumber()
         {
-            Random random = new Random();
-            int addNumber = random.Next(10000, 99999);
-            addNumbers.Add(addNumber, "");
+            Random rand = new Random();
+            int addnumber = rand.Next(10000, 99999);
+            bool keyExists = addNumbers.ContainsKey(addnumber);
+
+            if (keyExists)
+            {
+                addnumber = rand.Next(10000, 99999);
+                addNumbers.Add(addnumber, null);
+            }
+            else
+            {
+                addNumbers.Add(addnumber, null);
+            }
         }
     }
 }
