@@ -43,11 +43,13 @@ namespace Registration.Models
             var coReqs = new HashSet<string>();
             var preReqs = new HashSet<string>();
 
+            /* Convert course object to course name for comparison */
             foreach (var course in preRequisites)
             {
                 preReqs.Add(course.getName());
             }
 
+            /* Convert course object to course name for comparison */
             foreach (var course in coRequisites)
             {
                 coReqs.Add(course.getName());
@@ -57,6 +59,15 @@ namespace Registration.Models
             {
                 if (coReqs.Contains(course)) ++coReqHits;
                 if (preReqs.Contains(course)) ++preReqHits;
+            }
+
+            /* if corequisites are not met, check if student is currently taking it */
+            if (coReqHits != coReqs.Count())
+            {
+                foreach (var course in student.coursesInSchedule())
+                {
+                    if (coReqs.Contains(course)) ++coReqHits;
+                }
             }
 
             return (coReqHits == coReqs.Count() && preReqHits == preReqs.Count());

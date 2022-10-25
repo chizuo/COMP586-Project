@@ -93,5 +93,21 @@ namespace Registration.Models
 
             return true;
         }
+
+        public List<string> coursesInSchedule()
+        {
+            var courseList = new List<string>();
+            var week = new List<string>() { "M", "T", "W", "Th", "F", "Sa" };
+
+            foreach (var day in week)
+            {
+                foreach (var section in schedule[day])
+                {
+                    courseList.Add(section.getCourseName());
+                }
+            }
+
+            return courseList;
+        }
     }
 }
