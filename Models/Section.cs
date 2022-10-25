@@ -109,7 +109,7 @@ namespace Registration.Models
             this.addNumbers = addNumbers;
         }
 
-        public void generateAddNumber()
+        public int generateAddNumber()
         {
             Random rand = new Random();
             int addnumber;
@@ -122,6 +122,8 @@ namespace Registration.Models
             } while (keyExists);
 
             addNumbers.Add(addnumber, null);
+
+            return addnumber;
         }
     }
 }
