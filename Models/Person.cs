@@ -17,11 +17,11 @@ namespace Registration.Models
         protected string city { get; set; }
         protected string state { get; set; }
         protected int zip { get; set; }
-
+        protected string personType { get; set; }
         protected Dictionary<string, List<Section>> schedule;
 
         // Constructor with optional arguments
-        public Person(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, int zip, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
+        public Person(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, int zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
         {
             this.firstName = firstName;
             this.middleName = middleName;
@@ -34,6 +34,7 @@ namespace Registration.Models
             this.city = city;
             this.state = state;
             this.zip = zip;
+            this.personType = personType;
             this.email = email;
             this.areaCode = areaCode;
             this.phoneNumber = phoneNumber;
