@@ -5,9 +5,3 @@
 - [Jonathan Chua](https://github.com/chizuo)
 - [Harshleen Sadhnani](https://github.com/harshleen8) 
 - [Brandon Sorto](https://github.com/Brandon-CSUN)
-
-Repository for the supporting documentation of the term project. 
-The software system being implemented to fulfill the requirements of the term project has a three-tier architecture. 
-- [Client Application](https://github.com/chizuo/COMP586-Application)
-- [RESTful Web Service](https://github.com/chizuo/COMP586-Services)
-- [MySQL Database](#)
