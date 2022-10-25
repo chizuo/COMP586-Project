@@ -49,14 +49,48 @@ namespace Registration.Models
 
         public void addSection(Section section)
         {
-            var days = section.classDays;
-            foreach (string day in days)
+            foreach (string day in section.classDays)
             {
                 List<Section> dailySchedule = schedule[day];
                 dailySchedule.Add(section);
             }
         }
 
-        public abstract Boolean availability(Section section);
+        public Boolean scheduler(Section section)
+        {
+            var scheduler = new List<List<Section>>();
+
+            /* gets each daily schedule List<Section> for the days of the section */
+            foreach (string day in section.classDays)
+            {
+                scheduler.Add(this.schedule[day]);
+            }
+
+            /* runs through the schedule of the day */
+            foreach (var dailySchedule in scheduler)
+            {
+                /* if any of the sections already in the schedule conflicts with the section being added, return false */
+                foreach (var sectionInSchedule in dailySchedule)
+                {
+                    /* section.startTime exists within the sectionInSchedule's start & end time; section & sectionInSchedule */
+                    if (sectionInSchedule.startTime <= section.startTime && sectionInSchedule.endTime >= section.startTime)
+                        return false;
+
+                    /* section.endTime exists within the sectionInSchedule's start & end time; section & sectionInSchedule */
+                    if (sectionInSchedule.startTime <= section.endTime && sectionInSchedule.endTime >= section.endTime)
+                        return false;
+
+                    /* sectionInSchedule is scheduled in between the section attempting to be added; sectionInSchedule is a proper subset of section */
+                    if (section.startTime <= sectionInSchedule.startTime && section.endTime >= sectionInSchedule.endTime)
+                        return false;
+
+                    /* section that is being added exists in the time frame between sectionInSchedule; section is a proper subset of sectionInSchedule */
+                    if (sectionInSchedule.startTime <= section.startTime && sectionInSchedule.endTime >= section.endTime)
+                        return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
