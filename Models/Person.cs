@@ -57,6 +57,18 @@ namespace Registration.Models
             }
         }
 
+        public void removeSection(Section section)
+        {
+            var days = section.classDays;
+            foreach (string day in days)
+            {
+                List<Section> dailySchedule = schedule[day];
+                dailySchedule.Remove(section);
+            }
+
+        }
+
+
         public abstract Boolean availability(Section section);
     }
 }

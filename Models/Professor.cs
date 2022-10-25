@@ -13,6 +13,8 @@ namespace Registration.Models
            title = "Professor";
         }
 
+        
+
         // public Boolean availability(Section section); ready upon Person class no longer being abstract
 
     }
