@@ -35,6 +35,31 @@ namespace Registration.Models
             return deptName + courseNumber.ToString() + ": " + courseName;
         }
 
+        /* Method that checks if the student meets the requirement to take this course */
+        public Boolean requirements(Student student)
+        {
+            int coReqHits = 0;
+            int preReqHits = 0;
+            var coReqs = new HashSet<string>();
+            var preReqs = new HashSet<string>();
 
+            foreach (var course in preRequisites)
+            {
+                preReqs.Add(course.getName());
+            }
+
+            foreach (var course in coRequisites)
+            {
+                coReqs.Add(course.getName());
+            }
+
+            foreach (var course in student.coursesPassed())
+            {
+                if (coReqs.Contains(course)) ++coReqHits;
+                if (preReqs.Contains(course)) ++preReqHits;
+            }
+
+            return (coReqHits == coReqs.Count() && preReqHits == preReqs.Count());
+        }
     }
 }
