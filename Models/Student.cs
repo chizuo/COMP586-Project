@@ -1,6 +1,3 @@
-using Microsoft.VisualBasic;
-using System.ComponentModel.DataAnnotations;
-
 namespace Registration.Models
 {
     public class Student : Person
