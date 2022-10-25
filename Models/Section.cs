@@ -53,10 +53,10 @@ namespace Registration.Models
         9:00 in the even is going to be represented as 21:00.
         1:00 in the after is going to be represented as 13:00.
         7:00 in the morning is going to be represented as 7:00.
+
         Start Time: int
         End Time: int 
         
-
         Class Location: string / hyperlink
         Class Meeting Dates : string / DateTime Object 
         */
@@ -82,7 +82,7 @@ namespace Registration.Models
         Add Numbers: Dictionary<int, string>
         */
 
-        public Dictionary<int, string> addNumbers;
+        public Dictionary<int, string> addNumbers = new Dictionary<int, string>();
 
 
         public Section(int classIdNumber, int classSectionNumber, string schoolTerm, int schoolYear, int enrollmentCap, int enrollmentTotal, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, string> addNumbers)
@@ -109,23 +109,11 @@ namespace Registration.Models
             this.addNumbers = addNumbers;
         }
 
-             /*public void createAddNumbers()
-            {
+        public void generateAddNumber()
+        {
             Random random = new Random();
-            int addnumber = random.Next(10000, 99999);
-            for (var i = 0; i < addNumbers.Count; i++)
-            {
-                if (addnumber != addNumbers[i])
-                {
-                    addNumbers.Add(addnumber);
-                    break;
-                }
-                else
-                {
-                    createAddNumbers();
-                }
-            }
-            Console.WriteLine(addnumber);
-        }*/
+            int addNumber = random.Next(10000, 99999);
+            addNumbers.Add(addNumber, "");
+        }
     }
 }
