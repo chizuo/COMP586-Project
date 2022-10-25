@@ -16,10 +16,10 @@ namespace Registration.Models
         public int courseNumber;
         public string courseName;
         public string courseDescription;
-        public List<Course> preRequisites;
-        public List<Course> coRequisites;
+        public HashSet<Course> preRequisites;
+        public HashSet<Course> coRequisites;
 
-        public Course(string deptName, int courseNumber, string courseName, string courseDescription, List<Course> preReq, List<Course> coReq)
+        public Course(string deptName, int courseNumber, string courseName, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq)
         {
             this.deptName = deptName;
             this.courseNumber = courseNumber;
@@ -29,10 +29,12 @@ namespace Registration.Models
             this.coRequisites = coReq;
         }
 
+        /* Method to concatenate certain fields to provide a catalog name for the course */
         public string getName()
         {
             return deptName + courseNumber.ToString() + ": " + courseName;
         }
+
 
     }
 }
