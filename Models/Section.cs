@@ -3,7 +3,7 @@ namespace Registration.Models
 
     public class Section
     {
-        public int classIdNumber;
+        Course course;
         public int classSectionNumber;
         public string schoolYear;
         public string schoolTerm;
@@ -21,9 +21,9 @@ namespace Registration.Models
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
-        public Section(int classIdNumber, int classSectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers)
+        public Section(Course course, int classSectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers)
         {
-            this.classIdNumber = classIdNumber;
+            this.course = course;
             this.classSectionNumber = classSectionNumber;
             this.schoolTerm = schoolTerm;
             this.schoolYear = schoolYear;
@@ -51,6 +51,11 @@ namespace Registration.Models
             addNumbers.Add(addNumber, false);
 
             return addNumber;
+        }
+
+        public string getCourseName()
+        {
+            return course.getName();
         }
     }
 }
