@@ -3,7 +3,7 @@ namespace Registration.Models
 
     public class Section
     {
-        Course course;
+        protected Course course;
         public int classSectionNumber;
         public string schoolYear;
         public string schoolTerm;
@@ -56,6 +56,11 @@ namespace Registration.Models
         public string getCourseName()
         {
             return course.getName();
+        }
+
+        public int getUnits()
+        {
+            return course.units;
         }
     }
 }
