@@ -27,7 +27,8 @@ namespace Registration.Models
             var courseList = new List<string>();
             foreach (var section in this.transcript)
             {
-                courseList.Add(section.Item1.getCourseName());
+                if (section.Item2 >= 2.0)
+                    courseList.Add(section.Item1.getCourseName());
             }
             return courseList;
         }
