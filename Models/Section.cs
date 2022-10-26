@@ -52,7 +52,32 @@ namespace Registration.Models
 
             return addNumber;
         }
+        
+        public bool addStudent(Student student)
+        {
+            if(enrollment.Count != enrollmentCap){
+                enrollment.Add(student);
+                return true;
+            } 
+            else
+            {
+                return false;
+            }
+        }
 
+        public bool addStudent(Student student, int addNumber)
+        {
+            if(addNumbers.ContainsKey(addNumber) && addNumbers[addNumber] == false){
+                addNumbers[addNumber] = true;
+                enrollment.Add(student);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        
         public string getCourseName()
         {
             return course.getName();
