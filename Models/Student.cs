@@ -9,9 +9,16 @@ namespace Registration.Models
         {
             this.transcript = transcript == null ? new List<Tuple<Section, double>>() : transcript;
         }
-        public void calculateGPA()
+        public double overallGPA()
         {
-
+            double gradePoints = 0.0;
+            int unitsTaken = 0;
+            foreach (var grade in transcript)
+            {
+                unitsTaken += grade.Item1.getUnits();
+                gradePoints += grade.Item2;
+            }
+            return Math.Truncate((gradePoints / unitsTaken) * 100) / 100;
         }
 
         /* provides a List<string> of course catalog names for comparison purposes */
@@ -20,7 +27,8 @@ namespace Registration.Models
             var courseList = new List<string>();
             foreach (var section in this.transcript)
             {
-                courseList.Add(section.Item1.getCourseName());
+                if (section.Item2 >= 2.0)
+                    courseList.Add(section.Item1.getCourseName());
             }
             return courseList;
         }

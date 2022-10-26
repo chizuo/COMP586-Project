@@ -2,19 +2,10 @@ namespace Registration.Models
 {
     public class Course
     {
-        /*
-        Dept: COMP
-        CourseNum: 586
-        Course Name: Object-Oriented Software Development
-        Full Course Name : COMP 586 Object-Oriented Software Development
-        Description: string
-        PreReq: list of strings
-        CoReq: list of strings
-        */
-
         public string deptName;
         public int courseNumber;
         public string courseName;
+        public int units;
         public string courseDescription;
         public HashSet<Course> preRequisites;
         public HashSet<Course> coRequisites;
