@@ -63,11 +63,11 @@ namespace Registration.Models
            string [] daysOfOperation = section.classDays; //retrieving the days for sections
             
             foreach(string courseDay in daysOfOperation){ //for each day that the section occurs
-                List<Section> dailySchedule = schedule[courseDay]; //retrieving the scheduled days the section occurs on
+                List<Section> dailySchedule = schedule[courseDay]; //retrieves the list that represent's courseDay's schedule of Sections.
                 int index = 0;
-                foreach(Section sections in dailySchedule){ //iterating through the persons schedule of sections in each day that contains the section that needs to be removed
+                foreach(Section sections in dailySchedule){ //iterating through the List of Sections for the Person's dailySchedule
   
-                    if(sections.classSectionNumber==sectionCode){ //if that day contains the section number we want -> remove it, otherwise break, and check the next day (index)
+                    if(sections.classSectionNumber==sectionCode){ //if that section contains the sectionNumber we want -> remove it and break out of the current dailySchedule, and check the next day (index)
                         dailySchedule.RemoveAt(index); 
                         functionCheck++;
                         break;
