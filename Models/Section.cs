@@ -77,6 +77,13 @@ namespace Registration.Models
                 return false;
             }
         }
+        public bool removeStudent(Student student){
+            if(this.student == enrollment.student){
+                enrollment.Remove(student);
+                return true;
+            }
+            return false;
+        }
         
         public string getCourseName()
         {
