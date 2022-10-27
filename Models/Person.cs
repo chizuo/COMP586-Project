@@ -2,22 +2,22 @@ namespace Registration.Models
 {
     public abstract class Person
     {
-        protected int Id { get; set; }
-        protected string firstName { get; set; }
-        protected string middleName { get; set; }
-        protected string lastName { get; set; }
-        protected string gender { get; set; }
-        protected int birthMonth { get; set; }
-        protected int birthDay { get; set; }
-        protected int birthYear { get; set; }
-        protected string email { get; set; }
-        protected string areaCode { get; set; }
-        protected string phoneNumber { get; set; }
-        protected string address { get; set; }
-        protected string city { get; set; }
-        protected string state { get; set; }
-        protected int zip { get; set; }
-        protected string personType { get; set; }
+        protected int Id;
+        protected string firstName;
+        protected string middleName;
+        protected string lastName;
+        protected string gender;
+        protected int birthMonth;
+        protected int birthDay;
+        protected int birthYear;
+        protected string email;
+        protected string areaCode;
+        protected string phoneNumber;
+        protected string address;
+        protected string city;
+        protected string state;
+        protected int zip;
+        protected string personType;
         protected Dictionary<string, List<Section>> schedule;
 
         // Constructor with optional arguments
@@ -108,6 +108,18 @@ namespace Registration.Models
             }
 
             return courseList;
+        }
+
+        public string getName()
+        {
+            if (middleName != "") return firstName + " " + middleName + " " + lastName;
+
+            return firstName + " " + lastName;
+        }
+
+        public int getId()
+        {
+            return Id;
         }
     }
 }
