@@ -94,6 +94,29 @@ namespace Registration.Models
             return "Staff";
         }
 
+        public bool replaceProfessor(Professor prof, Section section)
+        {
+
+            if (prof.scheduler(section) == true)
+            {
+                if (professor == null)
+                {
+                    addProfessor(prof);
+                    prof.addSection(section);
+                    return true;
+                }
+                else
+                {
+                    professor.removeSection(section);
+                    addProfessor(prof);
+                    prof.addSection(section);
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public string getCourseName()
         {
             return course.getName();
