@@ -59,7 +59,6 @@ namespace Registration.Models
 
          public Boolean removeSection(Section section){
            int functionCheck=0; //incremented each time a section is removed 
-           int sectionCode = section.classSectionNumber; //retrieving the section's section number 
            string [] daysOfOperation = section.classDays; //retrieving the days for sections
             
             foreach(string courseDay in daysOfOperation){ //for each day that the section occurs
@@ -67,7 +66,7 @@ namespace Registration.Models
                 int index = 0;
                 foreach(Section sections in dailySchedule){ //iterating through the List of Sections for the Person's dailySchedule
   
-                    if(sections.classSectionNumber==sectionCode){ //if that section contains the sectionNumber we want -> remove it and break out of the current dailySchedule, and check the next day (index)
+                    if(sections.classSectionNumber == section.classSectionNumber){ //if that section contains the sectionNumber we want -> remove it and break out of the current dailySchedule, and check the next day (index)
                         dailySchedule.RemoveAt(index); 
                         functionCheck++;
                         break;
