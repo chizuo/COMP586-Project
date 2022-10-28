@@ -57,6 +57,28 @@ namespace Registration.Models
             }
         }
 
+         public Boolean removeSection(Section section){
+           int functionCheck=0; //incremented each time a section is removed 
+           string [] daysOfOperation = section.classDays; //retrieving the days for sections
+            
+            foreach(string courseDay in daysOfOperation){ //for each day that the section occurs
+                List<Section> dailySchedule = schedule[courseDay]; //retrieves the list that represent's courseDay's schedule of Sections.
+                int index = 0;
+                foreach(Section sections in dailySchedule){ //iterating through the List of Sections for the Person's dailySchedule
+  
+                    if(sections.classSectionNumber == section.classSectionNumber){ //if that section contains the sectionNumber we want -> remove it and break out of the current dailySchedule, and check the next day (index)
+                        dailySchedule.RemoveAt(index); 
+                        functionCheck++;
+                        break;
+                    }
+                    index++;
+                }
+            }
+            if(functionCheck==daysOfOperation.Length){return true;} //when the functionChecker is equal to the number of sections removed -> 
+                                                                    //return true, ensuring successful removal of the section passed 
+            return false; //this function should never return false
+        }
+
         public Boolean scheduler(Section section)
         {
             var scheduler = new List<List<Section>>();
