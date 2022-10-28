@@ -81,6 +81,18 @@ namespace Registration.Models
                 return false;
             }
         }
+        
+        public bool removeStudent(Student student){
+            int index = 0;
+            foreach(Student students in enrollment){
+                if(student.getId() == students.getId()){
+                    enrollment.RemoveAt(index);
+                    return true;
+                }
+                index++;
+            }
+            return false;
+        }
 
         public bool addProfessor(Professor prof)
         {
