@@ -4,6 +4,7 @@ namespace Registration.Models
     public class Section
     {
         protected Course course;
+        protected Professor professor;
         public int classSectionNumber;
         public string schoolYear;
         public string schoolTerm;
@@ -21,7 +22,7 @@ namespace Registration.Models
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
-        public Section(Course course, int classSectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers)
+        public Section(Course course, int classSectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor professor = null)
         {
             this.course = course;
             this.classSectionNumber = classSectionNumber;
@@ -37,6 +38,7 @@ namespace Registration.Models
             this.classLocation = classLocation;
             this.classNote = classNote;
             this.addNumbers = addNumbers;
+            this.professor = professor;
         }
 
         public int generateAddNumber()
@@ -52,13 +54,14 @@ namespace Registration.Models
 
             return addNumber;
         }
-        
+
         public bool addStudent(Student student)
         {
-            if(enrollment.Count != enrollmentCap){
+            if (enrollment.Count != enrollmentCap)
+            {
                 enrollment.Add(student);
                 return true;
-            } 
+            }
             else
             {
                 return false;
@@ -67,7 +70,8 @@ namespace Registration.Models
 
         public bool addStudent(Student student, int addNumber)
         {
-            if(addNumbers.ContainsKey(addNumber) && addNumbers[addNumber] == false){
+            if (addNumbers.ContainsKey(addNumber) && addNumbers[addNumber] == false)
+            {
                 addNumbers[addNumber] = true;
                 enrollment.Add(student);
                 return true;
@@ -77,7 +81,19 @@ namespace Registration.Models
                 return false;
             }
         }
-        
+
+        public bool addProfessor(Professor prof)
+        {
+            professor = prof;
+            return true;
+        }
+        public string getProfessorFullName()
+        {
+            if (professor != null) return professor.getName();
+
+            return "Staff";
+        }
+
         public string getCourseName()
         {
             return course.getName();
