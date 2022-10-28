@@ -82,11 +82,11 @@ namespace Registration.Models
             foreach(Student students in enrollment){
                 if(student.getId() == students.getId()){
                     enrollment.RemoveAt(index);
-                    break;
+                    return true;
                 }
                 index++;
             }
-            return true;
+            return false;
         }
         
         public string getCourseName()
