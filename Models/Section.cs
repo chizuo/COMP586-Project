@@ -87,7 +87,7 @@ namespace Registration.Models
             professor = prof;
             return true;
         }
-        public string professorFullName()
+        public string getProfessorFullName()
         {
             if (professor != null) return professor.getName();
 
