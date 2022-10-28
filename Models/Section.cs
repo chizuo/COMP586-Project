@@ -78,11 +78,15 @@ namespace Registration.Models
             }
         }
         public bool removeStudent(Student student){
-            if(this.student == enrollment.student){
-                enrollment.Remove(student);
-                return true;
+            int index = 0;
+            foreach(Student students in enrollment){
+                if(student.getId() == students.getId()){
+                    enrollment.RemoveAt(index);
+                    break;
+                }
+                index++;
             }
-            return false;
+            return true;
         }
         
         public string getCourseName()
