@@ -82,7 +82,7 @@ namespace Registration.Models
             }
         }
 
-        public bool addProfossor(Professor prof)
+        public bool addProfessor(Professor prof)
         {
             professor = prof;
             return true;
