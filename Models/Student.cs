@@ -9,6 +9,7 @@ namespace Registration.Models
         {
             this.transcript = transcript == null ? new List<Tuple<Section, double>>() : transcript;
         }
+
         public double overallGPA()
         {
             double gradePoints = 0.0;

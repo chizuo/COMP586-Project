@@ -1,11 +1,10 @@
 namespace Registration.Models
 {
-
     public class Section
     {
         protected Course course;
-        protected Professor professor;
-        public int classSectionNumber;
+        protected Professor? professor;
+        public int sectionNumber;
         public string schoolYear;
         public string schoolTerm;
         public int enrollmentCap;
@@ -22,10 +21,10 @@ namespace Registration.Models
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
-        public Section(Course course, int classSectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor professor = null)
+        public Section(Course course, int sectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor professor = null)
         {
             this.course = course;
-            this.classSectionNumber = classSectionNumber;
+            this.sectionNumber = sectionNumber;
             this.schoolTerm = schoolTerm;
             this.schoolYear = schoolYear;
             this.enrollmentCap = enrollmentCap;
@@ -81,11 +80,14 @@ namespace Registration.Models
                 return false;
             }
         }
-        
-        public bool removeStudent(Student student){
+
+        public bool removeStudent(Student student)
+        {
             int index = 0;
-            foreach(Student students in enrollment){
-                if(student.getId() == students.getId()){
+            foreach (Student students in enrollment)
+            {
+                if (student.getId() == students.getId())
+                {
                     enrollment.RemoveAt(index);
                     return true;
                 }
@@ -108,7 +110,6 @@ namespace Registration.Models
 
         public bool replaceProfessor(Professor prof, Section section)
         {
-
             if (prof.scheduler(section) == true)
             {
                 if (professor == null)
