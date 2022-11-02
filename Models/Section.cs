@@ -21,7 +21,7 @@ namespace Registration.Models
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
-        public Section(Course course, int sectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor professor = null)
+        public Section(Course course, int sectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor? professor = null)
         {
             this.course = course;
             this.sectionNumber = sectionNumber;

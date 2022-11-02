@@ -3,18 +3,18 @@ using System.Text.Encodings.Web;
 
 namespace Registration.Controllers
 {
-    public class HelloWorldController : Controller
+    public class ProfessorController : Controller
     {
         // GET: /Professor/
-        public string Index()
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
 
-        // GET: /Professor/Welcome/ //
-        public string Welcome()
+        // GET: /Professor/Welcome/
+        public IActionResult Welcome()
         {
-            return "This is the Welcome action method...";
+            return View();
         }
     }
 }
