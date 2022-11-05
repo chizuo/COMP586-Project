@@ -115,7 +115,7 @@ namespace Registration.Models
                 }
                 else
                 {
-                    professor.addSection(section);
+                    professor.removeSection(section);
                     professor.unCacheSection(section);
                     addProfessor(prof, section);
                     return true;
