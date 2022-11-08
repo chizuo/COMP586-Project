@@ -96,16 +96,12 @@ namespace Registration.Models
             return false;
         }
 
-        public bool addProfessor(Professor prof)
+        public bool addProfessor(Professor prof, Section section)
         {
             professor = prof;
+            prof.addSection(section);
+            prof.cacheSection(section);
             return true;
-        }
-        public string getProfessorFullName()
-        {
-            if (professor != null) return professor.getName();
-
-            return "Staff";
         }
 
         public bool replaceProfessor(Professor prof, Section section)
@@ -114,20 +110,26 @@ namespace Registration.Models
             {
                 if (professor == null)
                 {
-                    addProfessor(prof);
-                    prof.addSection(section);
+                    addProfessor(prof, section);
                     return true;
                 }
                 else
                 {
                     professor.removeSection(section);
-                    addProfessor(prof);
-                    prof.addSection(section);
+                    professor.unCacheSection(section);
+                    addProfessor(prof, section);
                     return true;
                 }
             }
 
             return false;
+        }
+
+        public string getProfessorFullName()
+        {
+            if (professor != null) return professor.getName();
+
+            return "Staff";
         }
 
         public string getCourseName()
