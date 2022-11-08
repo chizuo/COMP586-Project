@@ -1,7 +1,24 @@
 @{
     ViewData["Title"] = "Professor Login";
+
 }
-
-<h2>Professor Login</h2>
-
-<p>Implement a professor login form</p>
+<div class="row">
+    <p>
+    <h1>Professor Login</h1>
+    </p>
+    <div class="row">
+        <form action="Professor" method="post">
+            <div class="container">
+                <label for="username"><b>Username</b></label>
+                <input type="text" placeholder="Enter Username" name="username" required>
+                <label for="password"><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="password" required>
+                <button type="submit">Login</button>
+                <label>
+                    <input type="checkbox" checked="checked" name="remember"> Remember me </label>
+                <span class="password"> <a href="#">Forgot Password?</a></span>
+                </label>
+            </div>
+        </form>
+    </div>
+</div>
