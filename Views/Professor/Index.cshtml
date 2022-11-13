@@ -1,6 +1,6 @@
+@model UserModel
 @{
     ViewData["Title"] = "Professor Login";
-
 }
 <div class="row">
     <p>
@@ -13,7 +13,7 @@
                 <input type="text" placeholder="Enter Username" name="username" required>
                 <label for="password"><b>Password</b></label>
                 <input type="password" placeholder="Enter Password" name="password" required>
-                <button type="submit">Login</button>
+                <button type="submit" onclick="window.location= '@Url.Action( "Index", "Home")'">Login</button>
                 <label>
                     <input type="checkbox" checked="checked" name="remember"> Remember me </label>
                 <span class="password"> <a href="#">Forgot Password?</a></span>
