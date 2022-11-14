@@ -8,6 +8,8 @@ namespace Registration.Controllers
     {
         Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
         Dictionary<string, Professor> db_users = new Dictionary<string, Professor>();
+        Dictionary<string, Course> db_courses = new Dictionary<string, Course>();
+        Dictionary<string, Student> db_student = new Dictionary<string, Student>();
 
         // GET: /Professor/
         public ActionResult index()
