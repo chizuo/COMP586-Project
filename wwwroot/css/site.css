@@ -19,7 +19,7 @@ body {
 }
 
 /* Professor Login Page */
-#display{
+#display {
   width: 600px;
   height: 425px;
   background-color: white;
@@ -36,4 +36,8 @@ body {
   padding: 1em 2em;
   border: 1px solid;   
   display: table;
+}
+
+#login-error {
+  color: #E74A37;
 }

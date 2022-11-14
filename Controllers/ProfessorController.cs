@@ -12,6 +12,7 @@ namespace Registration.Controllers
         // GET: /Professor/
         public ActionResult index()
         {
+            ViewData["message"] = "";
             return View();
         }
 
@@ -23,8 +24,8 @@ namespace Registration.Controllers
             }
             else
             {
-                ViewData["message"] = "You have entered incorrect credentials";
-                return View("Failure");
+                ViewData["message"] = "The credentials you entered are incorrect";
+                return View("Index");
             }
         }
 

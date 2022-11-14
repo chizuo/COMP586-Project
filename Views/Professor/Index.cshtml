@@ -13,18 +13,22 @@
         </div>
         <div class="mb-2 col-form-label">
             <div class="form-floating">
-                @Html.TextBoxFor(model => model.id, htmlAttributes: new { @class="form-control" })
+                @Html.TextBoxFor(model => model.id, htmlAttributes: new { @class="form-control",required="required" })
                 @Html.LabelFor(model => model.id)
             </div>
         </div>
         <div class="mb-2 col-form-label">
             <div class="form-floating">
-                @Html.PasswordFor(model => model.password, htmlAttributes: new { @class="form-control" })
+                @Html.PasswordFor(model => model.password, htmlAttributes: new { @class="form-control", required="required" })
                 @Html.LabelFor(model => model.password)
             </div>
         </div>
         <div>
             <input type="submit" class="btn btn-info" id="signin" value="Sign in">
+        </div>
+        <hr/>
+        <div id="login-error">
+            @ViewData["message"]
         </div>
     </div>
 }
