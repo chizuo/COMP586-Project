@@ -1,24 +1,33 @@
-@model UserModel
 @{
     ViewData["Title"] = "Professor Login";
 }
-<div class="row">
-    <p>
-    <h1>Professor Login</h1>
-    </p>
-    <div class="row">
-        <form action="Professor" method="post">
-            <div class="container">
-                <label for="username"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="username" required>
-                <label for="password"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="password" required>
-                <button type="submit" onclick="window.location= '@Url.Action( "Index", "Home")'">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me </label>
-                <span class="password"> <a href="#">Forgot Password?</a></span>
-                </label>
+
+@model Registration.Models.User
+
+<div id="display" class="display">
+    <div class="header" id="headerDiv">
+        <h2>Welcome</h2>
+        <h6>Please fill in your credentials to login</h6>
+    </div>
+    <div class="center">
+        <form id="userLogin" action="dashboard" method="GET">
+            <div class="mb-2 col-form-label" id="row1">
+                <div class="form-floating userDiv">
+                    <input type="text" class="form-control" id="id" name="id" required>
+                    <label for="username">Enter Your ID#</label>
+                </div>
             </div>
+            <div class="mb-2 col-form-label" id="row2">
+                <div class="form-floating pwDiv">
+                    <input type="password" class="form-control" id="password" name="password" required>
+                    <label for="password">Enter Your Password</label> 
+                </div>   
+            </div>
+            <input type="hidden" name="form" value="login">
+            <div class="theButton">
+                <input type="submit" class="btn btn-info" id="signin" value="Sign in">
+            </div>
+            <hr/>
         </form>
     </div>
 </div>

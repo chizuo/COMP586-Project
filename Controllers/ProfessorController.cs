@@ -6,25 +6,28 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        Dictionary<string, string> db_login = new Dictionary<string, string>();
+        Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
         Dictionary<string, Professor> db_users = new Dictionary<string, Professor>();
 
         // GET: /Professor/
-        public IActionResult Index()
+        public ActionResult index()
         {
             return View();
         }
 
-        [HttpPost]
-        public void Index(string id, string password)
+        public ActionResult dashboard(string id, string password)
         {
-            Welcome();
-        }
-
-        // GET: /Professor/Welcome/
-        public IActionResult Welcome()
-        {
-            return View();
+            if (db_login.ContainsKey(id) && password == db_login[id])
+            {
+                ViewBag.ID = id;
+                ViewBag.password = password;
+                return View("Dashboard");
+            }
+            else
+            {
+                ViewData["message"] = "You have entered incorrect credentials";
+                return View("Failure");
+            }
         }
     }
 }
