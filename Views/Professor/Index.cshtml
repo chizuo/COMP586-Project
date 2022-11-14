@@ -4,6 +4,32 @@
 
 @model Registration.Models.User
 
+@using (Html.BeginForm("dashboard","Professor", FormMethod.Get))
+{
+    <div id="display" class="display">
+        <div class="header" id="headerDiv">
+            <h2>Welcome</h2>
+            <h6>Please fill in your credentials to login</h6>
+        </div>
+        <div class="mb-2 col-form-label">
+            <div class="form-floating">
+                @Html.TextBoxFor(model => model.id, htmlAttributes: new { @class="form-control" })
+                @Html.LabelFor(model => model.id)
+            </div>
+        </div>
+        <div class="mb-2 col-form-label">
+            <div class="form-floating">
+                @Html.PasswordFor(model => model.password, htmlAttributes: new { @class="form-control" })
+                @Html.LabelFor(model => model.password)
+            </div>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-info" id="signin" value="Sign in">
+        </div>
+    </div>
+}
+
+@*
 <div id="display" class="display">
     <div class="header" id="headerDiv">
         <h2>Welcome</h2>
@@ -23,11 +49,12 @@
                     <label for="password">Enter Your Password</label> 
                 </div>   
             </div>
-            <input type="hidden" name="form" value="login">
-            <div class="theButton">
+            <div>
                 <input type="submit" class="btn btn-info" id="signin" value="Sign in">
             </div>
             <hr/>
+            <div id="system-message"></div>
         </form>
     </div>
 </div>
+*@

@@ -15,12 +15,10 @@ namespace Registration.Controllers
             return View();
         }
 
-        public ActionResult dashboard(string id, string password)
+        public ActionResult dashboard(User user)
         {
-            if (db_login.ContainsKey(id) && password == db_login[id])
+            if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
-                ViewBag.ID = id;
-                ViewBag.password = password;
                 return View("Dashboard");
             }
             else
@@ -28,6 +26,11 @@ namespace Registration.Controllers
                 ViewData["message"] = "You have entered incorrect credentials";
                 return View("Failure");
             }
+        }
+
+        public ActionResult section()
+        {
+            return View();
         }
     }
 }
