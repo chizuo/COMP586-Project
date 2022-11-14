@@ -26,39 +26,10 @@
         <div>
             <input type="submit" class="btn btn-info" id="signin" value="Sign in">
         </div>
+        <br>
         <hr/>
         <div id="login-error">
             @ViewData["message"]
         </div>
     </div>
 }
-
-@*
-<div id="display" class="display">
-    <div class="header" id="headerDiv">
-        <h2>Welcome</h2>
-        <h6>Please fill in your credentials to login</h6>
-    </div>
-    <div class="center">
-        <form id="userLogin" action="dashboard" method="GET">
-            <div class="mb-2 col-form-label" id="row1">
-                <div class="form-floating userDiv">
-                    <input type="text" class="form-control" id="id" name="id" required>
-                    <label for="username">Enter Your ID#</label>
-                </div>
-            </div>
-            <div class="mb-2 col-form-label" id="row2">
-                <div class="form-floating pwDiv">
-                    <input type="password" class="form-control" id="password" name="password" required>
-                    <label for="password">Enter Your Password</label> 
-                </div>   
-            </div>
-            <div>
-                <input type="submit" class="btn btn-info" id="signin" value="Sign in">
-            </div>
-            <hr/>
-            <div id="system-message"></div>
-        </form>
-    </div>
-</div>
-*@
