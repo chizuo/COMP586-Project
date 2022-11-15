@@ -6,7 +6,7 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
+        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
             {"123456789", new Professor("Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127", "Lancaster", "CA", 93535, "Professor", null)}
@@ -16,12 +16,12 @@ namespace Registration.Controllers
         {
             {"Comp586", new Course("Computer Science", 586, "OOP", "Review of object oriented concepts. Comparison with functional methods.", new HashSet<Course>(), new HashSet<Course>())},
             {"Comp610", new Course("Computer Science", 610, "DSA", "Data Structures and algorithms", new HashSet<Course>(), new HashSet<Course>())},
-            {"Comp620", new Course("Computer Science", 620, "DSA", "Data Structures and algorithms", new HashSet<Course>(), new HashSet<Course>())},
+            {"Comp620", new Course("Computer Science", 620, "Comp Sys Arch", "Computer System Architecture", new HashSet<Course>(), new HashSet<Course>())},
             {"Comp615", new Course("Computer Science", 615, "ATC", "Advanced Topics in Computation Theory", new HashSet<Course>(), new HashSet<Course>())},
         };
         static Dictionary<string, Student> db_student = new Dictionary<string, Student>()
         {
-            {"987654321", new Student("First Name", "Last Name", "Male/Female", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)}
+            {"987654321", new Student("First Name", "Last Name", "Male/Female", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
         };
 
         static Dictionary<string, Section> db_sections = new Dictionary<string, Section>()
