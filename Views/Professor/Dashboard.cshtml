@@ -3,17 +3,18 @@
 }
 
 <h2>ID: @ViewBag.ID & Password: @ViewBag.password</h2>
-<table class="table">
-    <tr>
-        <th>
-         @*   @Html.DisplayNameFor(model => Professor)*@
-        </th>
-        <th>
-           @*  @Html.DisplayNameFor(model => model.Age)*@
-        </th>
-        <th></th>
-    </tr>
-    <link rel="stylesheet" href="mystyle.css">
+        @*
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th></th>
+            </tr>
+        *@
     <div class="card" id="card">
         <div class="card-body">
             <h3 class="card-title">Professor Name</h3>
@@ -25,23 +26,40 @@
         </div>
     </div>
     <table id="coursetable">
-    <tr>
-        <th>Class</th>
-        <th>Description</th>
-        <th>Days/Times</th>
-        <th>Room</th>
-        <th>Instructor</th>
-        <th>Units</th>
-        <th>Status</th>
-    </tr>
-    <tr>
-        <td>getClass</td>
-        <td>getDescription</td>
-        <td>getDays getTime</td>
-        <td>getRoom</td>
-        <td>getDescription</td>
-        <td>getUnits</td>
-        <td>getStatus</td>
-    </tr>
-
+        <tr>
+            <th>Class</th>
+            <th>Description</th>
+            <th>Days/Times</th>
+            <th>Room</th>
+            <th>Instructor</th>
+            <th>Units</th>
+            <th>Status</th>
+        </tr>
+        <tr>
+            <td>getClass</td>
+            <td>getDescription</td>
+            <td>getDays getTime</td>
+            <td>getRoom</td>
+            <td>getDescription</td>
+            <td>getUnits</td>
+            <td>getStatus</td>
+        </tr>
     </table>
+     <div class="card" id="schedulecard">
+        <div class="card-body">
+            <h3 class="card-title">My Schedule</h3>
+            <table id="coursetable">
+                <tr>
+                    <th>Status</th>
+                    <th>Grading</th>
+                    <th>Grade Book</th>
+                    <th>Course Number</th>
+                    <th>Section</th>
+                    <th>Days/Times</th>
+                    <th>Room</th>
+                    <th>Instructor</th>
+                    <th>Start/End Date</th>
+                </tr>
+            </table>
+        </div>
+    </div>

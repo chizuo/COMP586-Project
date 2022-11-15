@@ -47,6 +47,11 @@ body {
   height: 300px;
   width: 550px;
 }
+/*Card for Professor Schedule*/
+#schedulecard{
+  height: 300px;
+  width: 750px;
+}
 
 /*Table styling for Courses*/
 table#coursetable table{
