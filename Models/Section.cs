@@ -8,7 +8,7 @@ namespace Registration.Models
         public string schoolYear;
         public string schoolTerm;
         public int enrollmentCap;
-        public List<Student> enrollment;
+        public List<Student> enrollment = new List<Student>();
         public int waitListcap;
         public int waitListTotal;
         public string[] classDays;
