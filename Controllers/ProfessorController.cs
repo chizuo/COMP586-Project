@@ -6,7 +6,7 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
+        Dictionary<string, string> db_login = new Dictionary<string, string>() { { "admin", "admin" } };
         Dictionary<string, Professor> db_users = new Dictionary<string, Professor>();
 
         // GET: /Professor/
