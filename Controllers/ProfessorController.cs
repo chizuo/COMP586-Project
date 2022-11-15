@@ -34,7 +34,7 @@ namespace Registration.Controllers
 
         static Dictionary<string, Section> db_sections = new Dictionary<string, Section>()
         {
-            {"section380", new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
+            {"section380", new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
             {"section381", new Section(db_courses["Comp381"], 10001, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
             {"section565", new Section(db_courses["Comp565"], 10002, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
             {"section584", new Section(db_courses["Comp586"], 10003, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
@@ -43,6 +43,8 @@ namespace Registration.Controllers
             {"section620", new Section(db_courses["Comp620"], 10006, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] { "Th" }, 1500, 1745, "JD1105", "Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
             {"section615", new Section(db_courses["Comp615"], 10007, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] { "M" }, 1900, 2145, "JD6617", "M", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
         };
+
+        //db_sections["section380"].addStudent(db_student["1234"]);
 
         // GET: /Professor/
         public ActionResult index()
