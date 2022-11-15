@@ -12,7 +12,7 @@ namespace Registration.Controllers
             {"123456789", new Professor("Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127", "Lancaster", "CA", 93535, "Professor", null)}
         };
 
-        static Dictionary<string, Student> db_student = new Dictionary<string, Student>()
+        public static Dictionary<string, Student> db_student = new Dictionary<string, Student>()
         {
             {"1234", new Student("Richard", "Mason", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
             {"2234", new Student("Kevin", "Pillow", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
@@ -44,6 +44,8 @@ namespace Registration.Controllers
             {"section615", new Section(db_courses["Comp615"], 10007, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] { "M" }, 1900, 2145, "JD6617", "M", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
         };
 
+        Section test = new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(), 15, 0, new string[] { "M", "W" }, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"]);
+        test.addStudent(db_student["1234"]);
         //db_sections["section380"].addStudent(db_student["1234"]);
 
         // GET: /Professor/
