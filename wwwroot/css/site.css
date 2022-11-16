@@ -50,7 +50,7 @@ body {
 /*Card for Professor Schedule*/
 #schedulecard{
   height: 300px;
-  width: 750px;
+  width: 750px
 }
 
 /*Table styling for Courses*/
@@ -58,6 +58,7 @@ table#coursetable table{
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  overflow-y:scroll;
 }
 
 table#coursetable td, th {
