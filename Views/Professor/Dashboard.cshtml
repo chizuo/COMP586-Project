@@ -3,3 +3,51 @@
 }
 
 <h2>ID: @ViewBag.ID & Password: @ViewBag.password</h2>
+        @*
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => Professor)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Age)
+                </th>
+                <th></th>
+            </tr>
+        *@
+    <div class="card" id="card">
+        <div class="card-body">
+            <h3 class="card-title">Professor Name:  </h3>
+            <p class="card-text">ID: getID</p>
+            <p class="card-text">Address: getAddress</p>
+            <p class="card-text">Telephone: getPhoneNumber</p>
+            <p class="card-text">Email: getEmail</p>
+            <button onclick="OnUpdate">Update</button>
+        </div>
+    </div>
+   
+     <div class="card" id="schedulecard">
+        <div class="card-body">
+            <h3 class="card-title">My Schedule</h3>
+            <table id="coursetable">
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                    <th>Days/Times</th>
+                    <th>Room</th>
+                    <th>Gradebook</th>
+                    <th>Students</th>
+                    <th>Start/End Date</th>
+                </tr>
+                <tr>
+                    <th>Class</th>
+                    <th>Description</th>
+                    <th>Days/Times</th>
+                    <th>Room</th>
+                    <th>Gradebook</th>
+                    <th>Students</th>
+                    <th>Start/End Date</th>
+                </tr>
+            </table>
+        </div>
+    </div>

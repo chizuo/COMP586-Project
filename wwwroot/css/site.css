@@ -41,3 +41,34 @@ body {
 #login-error {
   color: #E74A37;
 }
+
+
+/*Card for Professor Information*/
+#card{
+  height: 300px;
+  width: 550px;
+}
+/*Card for Professor Schedule*/
+#schedulecard{
+  height: 300px;
+  width: 750px
+}
+
+/*Table styling for Courses*/
+table#coursetable table{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  overflow-y:scroll;
+}
+
+table#coursetable td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+table#coursetable tr:nth-child(even) {
+  background-color: #dddddd;
+}
+/*-------------------------*/

@@ -6,7 +6,7 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
+        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "admin", "admin" } };
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
             {"123456789", new Professor("Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127", "Lancaster", "CA", 93535, "Professor", null)}
