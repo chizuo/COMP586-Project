@@ -10,11 +10,12 @@ namespace Registration.Models
         public HashSet<Course> preRequisites;
         public HashSet<Course> coRequisites;
 
-        public Course(string deptName, int courseNumber, string courseName, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq)
+        public Course(string deptName, int courseNumber, string courseName, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq)
         {
             this.deptName = deptName;
             this.courseNumber = courseNumber;
             this.courseName = courseName;
+            this.units = units;
             this.courseDescription = courseDescription;
             this.preRequisites = preReq;
             this.coRequisites = coReq;
