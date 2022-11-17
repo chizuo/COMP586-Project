@@ -2,29 +2,34 @@ namespace Registration.Models
 {
     public class Course
     {
-        public string dept;
-        public int number;
-        public string name;
-        public int units;
+        protected Department department;
+        protected int number;
+        protected string subject;
+        public string Subject { get; }
+        public string Name { get { return department.Code + number.ToString() + " : " + subject; } }
+        public string Code { get { return department.Code + number.ToString(); } }
+        protected int units;
+        public int Units { get { return units; } }
+        protected bool lab;
+        public bool Lab { get; set; }
         public string description;
-        public HashSet<Course> preRequisites;
-        public HashSet<Course> coRequisites;
+        protected HashSet<Course> preRequisites;
+        public HashSet<Course> PreRequisites { set { preRequisites = value; } }
+        public List<Course> PreReq { get { return preRequisites.ToList(); } }
+        protected HashSet<Course> coRequisites;
+        public HashSet<Course> CoRequisites { set { coRequisites = value; } }
+        public List<Course> CoReq { get { return coRequisites.ToList(); } }
 
-        public Course(string deptName, int courseNumber, string courseName, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq)
+        public Course(Department department, int number, string subject, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq, bool lab = false)
         {
-            dept = deptName;
-            number = courseNumber;
-            name = courseName;
+            this.department = department;
+            this.number = number;
+            this.subject = subject;
             this.units = units;
-            description = courseDescription;
-            preRequisites = preReq;
-            coRequisites = coReq;
-        }
-
-        /* Method to concatenate certain fields to provide a catalog name for the course */
-        public string getName()
-        {
-            return dept + number.ToString() + ": " + name;
+            this.lab = lab;
+            this.description = courseDescription;
+            this.preRequisites = preReq;
+            this.coRequisites = coReq;
         }
 
         /* Method that checks if the student meets the requirement to take this course */
@@ -38,13 +43,13 @@ namespace Registration.Models
             /* Convert course object to course name for comparison */
             foreach (var course in preRequisites)
             {
-                preReqs.Add(course.getName());
+                preReqs.Add(course.Code);
             }
 
             /* Convert course object to course name for comparison */
             foreach (var course in coRequisites)
             {
-                coReqs.Add(course.getName());
+                coReqs.Add(course.Code);
             }
 
             foreach (var course in student.coursesPassed())
