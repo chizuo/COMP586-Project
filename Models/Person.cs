@@ -147,5 +147,19 @@ namespace Registration.Models
         {
             return Id;
         }
+
+        public string getAddress(){
+            return address+" "+city+", "+state+", "+zip;
+        }
+
+        public string getPhoneNumber(){
+         string firstThree = phoneNumber.Substring(0, 2);
+         string lastFour = phoneNumber.Substring(3,3);
+            return "("+ areaCode +")"+ "-" +firstThree+lastFour;
+        }
+
+        public string getEmail(){
+            return email;
+        }
     }
 }

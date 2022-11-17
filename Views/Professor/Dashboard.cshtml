@@ -1,6 +1,9 @@
+@model Registration.Models.Professor
+
 @{
     ViewData["Title"] = "Professor Dashboard";
 }
+
 
 <h2>ID: @ViewBag.ID & Password: @ViewBag.password</h2>
         @*
@@ -17,11 +20,11 @@
         *@
     <div class="card" id="card">
         <div class="card-body">
-            <h3 class="card-title">Professor Name:  </h3>
-            <p class="card-text">ID: getID</p>
-            <p class="card-text">Address: getAddress</p>
-            <p class="card-text">Telephone: getPhoneNumber</p>
-            <p class="card-text">Email: getEmail</p>
+            <h3 class="card-title">Welcome, @Model.getName()  </h3>
+            <p class="card-text">ID: @Model.getId()</p>
+            <p class="card-text">Address: @Model.getAddress() </p>
+            <p class="card-text">Telephone: @*Insert Model.getPhoneNumber()*@</p>
+            <p class="card-text">Email: @*Insert Model.getEmail()*@</p>
             <button onclick="OnUpdate">Update</button>
         </div>
     </div>

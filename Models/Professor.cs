@@ -10,6 +10,10 @@ namespace Registration.Models
             this.cachedSections = cachedSections != null ? cachedSections : new List<Section>();
         }
 
+        public void addSection(List<Section> sectionList){
+            
+        }
+
         public void cacheSection(Section section)
         {
             cachedSections.Add(section);
