@@ -86,7 +86,7 @@ namespace Registration.Models
             int index = 0;
             foreach (Student students in enrollment)
             {
-                if (student.getId() == students.getId())
+                if (student.ID == students.ID)
                 {
                     enrollment.RemoveAt(index);
                     return true;
@@ -127,7 +127,7 @@ namespace Registration.Models
 
         public string getProfessorFullName()
         {
-            if (professor != null) return professor.getName();
+            if (professor != null) return professor.Name;
 
             return "Staff";
         }

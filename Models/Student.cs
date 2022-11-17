@@ -2,10 +2,13 @@ namespace Registration.Models
 {
     public class Student : Person
     {
-        public List<Tuple<Section, double>> transcript;
 
-        public Student(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, List<Tuple<Section, double>>? transcript = null, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
-         : base(firstName, lastName, gender, birthMonth, birthDay, birthYear, address, city, state, zip, personType, schedule = null, middleName = "", email = "", areaCode = "", phoneNumber = "")
+        protected List<Tuple<Section, double>> transcript;
+        public List<Tuple<Section, double>> Transcript { get; set; }
+        public double GPA { get { return overallGPA(); } }
+
+        public Student(int id, string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, List<Tuple<Section, double>>? transcript = null, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
+         : base(id, first, last, gender, birthMonth, birthDay, birthYear, address, city, state, zip, personType, schedule = null, middle, email, areaCode, phone)
         {
             this.transcript = transcript == null ? new List<Tuple<Section, double>>() : transcript;
         }

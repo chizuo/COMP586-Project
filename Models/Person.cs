@@ -2,27 +2,36 @@ namespace Registration.Models
 {
     public abstract class Person
     {
-        protected int Id;
+        protected int id;
+        public int ID { get { return id; } }
         protected string first;
         protected string middle;
         protected string last;
+        public string Name { get { return middle.Length > 0 ? $"{first} {middle} {last}" : $"{first} {last}"; } }
         protected string gender;
+        public string Gender { get { return gender; } }
         protected int birthMonth;
         protected int birthDay;
         protected int birthYear;
+        public string Birthday { get { return $"{birthMonth}/{birthDay}/{birthYear}"; } }
         protected string email;
+        public string Email { get { return email; } }
         protected string areaCode;
         protected string phone;
+        public string Phone { get { return $"({areaCode}){phone}"; } }
         protected string address;
         protected string city;
         protected string state;
         protected string zip;
+        public string Address { get { return $"{address}, {city} {state} {zip}"; } }
         protected string personType;
+        public string Type { get { return personType; } }
         protected Dictionary<string, List<Section>> schedule;
 
         // Constructor with optional arguments
-        public Person(string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
+        public Person(int id, string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
         {
+            this.id = id;
             this.first = first;
             this.middle = middle;
             this.last = last;
@@ -134,18 +143,6 @@ namespace Registration.Models
             }
 
             return courseList;
-        }
-
-        public string getName()
-        {
-            if (middle != "") return first + " " + middle + " " + last;
-
-            return first + " " + last;
-        }
-
-        public int getId()
-        {
-            return Id;
         }
 
         public void updateInfo(string middle = "", string email = "", string areaCode = "", string phone = "", string address = "", string city = "", string state = "", string zip = "")
