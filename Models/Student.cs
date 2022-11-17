@@ -2,7 +2,6 @@ namespace Registration.Models
 {
     public class Student : Person
     {
-
         protected List<Tuple<Section, double>> transcript;
         public List<Tuple<Section, double>> Transcript { get; set; }
         public double GPA { get { return overallGPA(); } }
