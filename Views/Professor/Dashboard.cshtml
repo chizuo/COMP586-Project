@@ -1,5 +1,7 @@
+@model Registration.Models.Professor
+
 @{
     ViewData["Title"] = "Professor Dashboard";
 }
 
-<h2>ID: @ViewBag.ID & Password: @ViewBag.password</h2>
+<h2>Welcome @Model.getName()</h2>

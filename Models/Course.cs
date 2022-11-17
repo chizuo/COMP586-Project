@@ -2,29 +2,29 @@ namespace Registration.Models
 {
     public class Course
     {
-        public string deptName;
-        public int courseNumber;
-        public string courseName;
+        public string dept;
+        public int number;
+        public string name;
         public int units;
-        public string courseDescription;
+        public string description;
         public HashSet<Course> preRequisites;
         public HashSet<Course> coRequisites;
 
         public Course(string deptName, int courseNumber, string courseName, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq)
         {
-            this.deptName = deptName;
-            this.courseNumber = courseNumber;
-            this.courseName = courseName;
+            dept = deptName;
+            number = courseNumber;
+            name = courseName;
             this.units = units;
-            this.courseDescription = courseDescription;
-            this.preRequisites = preReq;
-            this.coRequisites = coReq;
+            description = courseDescription;
+            preRequisites = preReq;
+            coRequisites = coReq;
         }
 
         /* Method to concatenate certain fields to provide a catalog name for the course */
         public string getName()
         {
-            return deptName + courseNumber.ToString() + ": " + courseName;
+            return dept + number.ToString() + ": " + name;
         }
 
         /* Method that checks if the student meets the requirement to take this course */

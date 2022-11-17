@@ -4,7 +4,7 @@ namespace Registration.Models
     {
         public List<Tuple<Section, double>> transcript;
 
-        public Student(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, int zip, string personType, List<Tuple<Section, double>>? transcript = null, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
+        public Student(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, List<Tuple<Section, double>>? transcript = null, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
          : base(firstName, lastName, gender, birthMonth, birthDay, birthYear, address, city, state, zip, personType, schedule = null, middleName = "", email = "", areaCode = "", phoneNumber = "")
         {
             this.transcript = transcript == null ? new List<Tuple<Section, double>>() : transcript;

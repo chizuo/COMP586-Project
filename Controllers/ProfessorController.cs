@@ -9,15 +9,15 @@ namespace Registration.Controllers
         static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
-            {"123456789", new Professor("Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127", "Lancaster", "CA", 93535, "Professor", null)}
+            {"123456789", new Professor("Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127", "Lancaster", "CA", "93535", "Professor", null)}
         };
 
         public static Dictionary<string, Student> db_student = new Dictionary<string, Student>()
         {
-            {"1234", new Student("Richard", "Mason", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
-            {"2234", new Student("Kevin", "Pillow", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
-            {"3334", new Student("Christina", "McGeorge", "Female", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
-            {"4444", new Student("Carolina", "McGarity", "Male/Female", 01, 01, 1050, "Street address", "City Name", "State initals", 00000, "Student", null)},
+            {"1234", new Student("Richard", "Mason", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", "00000", "Student", null)},
+            {"2234", new Student("Kevin", "Pillow", "Male", 01, 01, 1050, "Street address", "City Name", "State initals", "00000", "Student", null)},
+            {"3334", new Student("Christina", "McGeorge", "Female", 01, 01, 1050, "Street address", "City Name", "State initals", "00000", "Student", null)},
+            {"4444", new Student("Carolina", "McGarity", "Male/Female", 01, 01, 1050, "Street address", "City Name", "State initals", "00000", "Student", null)},
         };
 
         static Dictionary<string, Course> db_courses = new Dictionary<string, Course>()
@@ -55,7 +55,7 @@ namespace Registration.Controllers
         {
             if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
-                return View("Dashboard");
+                return View("Dashboard", db_professors[user.id]);
             }
             else
             {

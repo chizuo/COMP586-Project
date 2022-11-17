@@ -20,9 +20,7 @@ namespace Registration.Controllers
 
         public ActionResult index()
         {
-            CourseView course = new CourseView(db_courses["Comp586"].deptName, db_courses["Comp586"].courseNumber, db_courses["Comp586"].courseName, db_courses["Comp586"].units, db_courses["Comp586"].courseDescription);
-
-            return View(course);
+            return View(db_courses["Comp586"]);
         }
     }
 }

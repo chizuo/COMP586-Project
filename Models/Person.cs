@@ -3,29 +3,29 @@ namespace Registration.Models
     public abstract class Person
     {
         protected int Id;
-        protected string firstName;
-        protected string middleName;
-        protected string lastName;
+        protected string first;
+        protected string middle;
+        protected string last;
         protected string gender;
         protected int birthMonth;
         protected int birthDay;
         protected int birthYear;
         protected string email;
         protected string areaCode;
-        protected string phoneNumber;
+        protected string phone;
         protected string address;
         protected string city;
         protected string state;
-        protected int zip;
+        protected string zip;
         protected string personType;
         protected Dictionary<string, List<Section>> schedule;
 
         // Constructor with optional arguments
-        public Person(string firstName, string lastName, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, int zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middleName = "", string email = "", string areaCode = "", string phoneNumber = "")
+        public Person(string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
         {
-            this.firstName = firstName;
-            this.middleName = middleName;
-            this.lastName = lastName;
+            this.first = first;
+            this.middle = middle;
+            this.last = last;
             this.gender = gender;
             this.birthMonth = birthMonth;
             this.birthDay = birthDay;
@@ -37,7 +37,7 @@ namespace Registration.Models
             this.personType = personType;
             this.email = email;
             this.areaCode = areaCode;
-            this.phoneNumber = phoneNumber;
+            this.phone = phone;
             this.schedule = schedule != null ? schedule : new Dictionary<string, List<Section>> {
                                                             { "M", new List<Section>() },
                                                             { "T", new List<Section>() },
@@ -138,14 +138,26 @@ namespace Registration.Models
 
         public string getName()
         {
-            if (middleName != "") return firstName + " " + middleName + " " + lastName;
+            if (middle != "") return first + " " + middle + " " + last;
 
-            return firstName + " " + lastName;
+            return first + " " + last;
         }
 
         public int getId()
         {
             return Id;
+        }
+
+        public void updateInfo(string middle = "", string email = "", string areaCode = "", string phone = "", string address = "", string city = "", string state = "", string zip = "")
+        {
+            this.middle = middle.Length > 0 ? middle : this.middle;
+            this.email = email.Length > 0 ? email : this.email;
+            this.areaCode = areaCode.Length > 0 ? areaCode : this.areaCode;
+            this.phone = phone.Length > 0 ? phone : this.phone;
+            this.address = address.Length > 0 ? address : this.address;
+            this.city = city.Length > 0 ? city : this.city;
+            this.state = state.Length > 0 ? state : this.state;
+            this.zip = zip.Length > 0 ? zip : this.zip;
         }
     }
 }
