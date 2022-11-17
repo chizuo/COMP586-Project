@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>550</x><y>550</y><w>210</w><h>180</h></coordinates><panel_attributes>Course
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>500</x><y>550</y><w>210</w><h>170</h></coordinates><panel_attributes>Course
 --
 +deptName: string
 +courseNumber: int
@@ -10,33 +10,40 @@
 --
 +getName: string
 +requirements: Boolean
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>60</y><w>200</w><h>380</h></coordinates><panel_attributes>Person
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>0</y><w>200</w><h>480</h></coordinates><panel_attributes>Person
 --
-#Id: int
-#firstName: string
-#middleName: string
-#lastName: string
+#id: int
++ID: int
+#first: string
+#middle: string
+#last: string
++&lt;&lt;get&gt;&gt; Name: string
 #gender: string
++&lt;&lt;get&gt;&gt; Gender: string
 #birthMonth: int
 #birthDay: int
 #birthYear: int
++&lt;&lt;get&gt;&gt; Birthday: string
 #email: string
++&lt;&lt;get&gt;&gt; Email: string
 #areaCode: string
 #phoneNumber: string
++&lt;&lt;get&gt;&gt; Phone: string
 #address: string
 #city: string
 #state: string
-#zip: int
+#zip: string
++&lt;&lt;get&gt;&gt; Address: string
 #personType: string
++&lt;&lt;get&gt;&gt; Type: string
 #schedule: Dictionary&lt;&gt;
 --
 +addSection: void
 +removeSection: Boolean
 +scheduler: Boolean
 +coursesInSchedule: List&lt;string&gt;
-+getName: string
-+getId: int
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>540</x><y>50</y><w>210</w><h>410</h></coordinates><panel_attributes>Section
++updateInfo: void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>490</x><y>50</y><w>210</w><h>410</h></coordinates><panel_attributes>Section
 --
 #course: Course
 #professor: Professor
@@ -63,17 +70,23 @@
 +replaceProfessor: bool
 +getProfessorFullName: string
 +getCourseName: string
-+getUnits: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>640</y><w>200</w><h>90</h></coordinates><panel_attributes>Student
++getUnits: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>640</y><w>200</w><h>90</h></coordinates><panel_attributes>Student
 --
-+transcript: List&lt;&gt;
+#transcript: List&lt;&gt;
++&lt;&lt;get, set&gt;&gt; Transcript: List&lt;&gt;
++&lt;&lt;get&gt;&gt; GPA: double
 --
 +overallGPA: double
-+coursesPassed: List&lt;string&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>490</y><w>200</w><h>90</h></coordinates><panel_attributes>Professor
++coursesPassed: List&lt;string&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>70</x><y>510</y><w>200</w><h>90</h></coordinates><panel_attributes>Professor
 --
 +cachedSections: Dictionary&lt;&gt;
 --
 +cacheSection: void
-+unCacheSection: void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>60</x><y>70</y><w>80</w><h>450</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10;10;430;60;430</additional_attributes></element><element><id>Relation</id><coordinates><x>50</x><y>60</y><w>90</w><h>610</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;590;70;590</additional_attributes></element><element><id>Relation</id><coordinates><x>500</x><y>70</y><w>70</w><h>500</h></coordinates><panel_attributes>lt=&lt;&lt;.
-</panel_attributes><additional_attributes>50;480;10;480;10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>90</y><w>250</w><h>430</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;410;180;410;180;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>160</y><w>250</w><h>510</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;490;160;490;160;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>560</y><w>260</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
-m2=transcript is an aggregate of </panel_attributes><additional_attributes>240;10;200;10;200;110;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>310</x><y>50</y><w>250</w><h>310</h></coordinates><panel_attributes>lt=&lt;-
-m2=schedule contains</panel_attributes><additional_attributes>230;10;70;10;70;280;10;280</additional_attributes></element></diagram>
++unCacheSection: void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>10</x><y>70</y><w>80</w><h>470</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>60;10;10;10;10;450;60;450</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>60</y><w>90</w><h>610</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>70;10;10;10;10;590;70;590</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>70</y><w>70</w><h>500</h></coordinates><panel_attributes>lt=&lt;&lt;.
+</panel_attributes><additional_attributes>50;480;10;480;10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>90</y><w>250</w><h>470</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;450;180;450;180;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>160</y><w>250</w><h>510</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;490;160;490;160;10;230;10</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>560</y><w>260</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=transcript is an aggregate of </panel_attributes><additional_attributes>240;10;200;10;200;110;10;110</additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>50</y><w>250</w><h>310</h></coordinates><panel_attributes>lt=&lt;-
+m2=schedule contains</panel_attributes><additional_attributes>230;10;70;10;70;280;10;280</additional_attributes></element><element><id>UMLClass</id><coordinates><x>740</x><y>560</y><w>210</w><h>60</h></coordinates><panel_attributes>User
+--
++&lt;&lt;get,set&gt;&gt; id: string
++&lt;&lt;get,set&gt;&gt; password: string
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
