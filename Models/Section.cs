@@ -134,12 +134,12 @@ namespace Registration.Models
 
         public string getCourseName()
         {
-            return course.getName();
+            return course.Name;
         }
 
         public int getUnits()
         {
-            return course.units;
+            return course.Units;
         }
     }
 }

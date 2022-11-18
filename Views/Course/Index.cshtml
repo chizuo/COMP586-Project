@@ -5,5 +5,17 @@
 }
 
 <div id="course">
-    <h1>Course @Model.dept @Model.number : @Model.name (@Model.units)</h1>
+    <h2 id="course-header"><span>Course:</span> @Model.Name (@Model.Units)</h2>
+    <hr>
+    <div id="course-card">
+        <div id="contents">
+            <p><span>Corequisites:</span> @foreach(var course in Model.CoReq){
+                <a href="./index?course=@course.Code">@course.Code</a>
+            }</p>
+            <p><span>Prerequisites:</span> @foreach(var course in Model.PreReq){
+                <a href="./index?course=@course.Code">@course.Code</a>
+            }</p></p>
+            <p><span>Description:</span> @Model.description</p>
+        </div>
+    </div>
 </div>
