@@ -7,12 +7,13 @@ namespace Registration.Models
         protected string subject;
         public string Subject { get; }
         public string Name { get { return department.Code + number.ToString() + " : " + subject; } }
-        public string Code { get { return department.Code + number.ToString(); } }
+        public string Code { get { return isLab == true ? department.Code + number.ToString() + "L" : department.Code + number.ToString(); } }
         protected int units;
         public int Units { get { return units; } }
-        protected bool lab;
-        public bool Lab { get; set; }
-        public string description;
+        protected bool isLab; /* identifies if this course is a lab */
+        public bool IsLab { get { return isLab; } }
+        internal Course lab; /* couse that is the lab component */
+        internal string description;
         protected HashSet<Course> preRequisites;
         public HashSet<Course> PreRequisites { set { preRequisites = value; } }
         public List<Course> PreReq { get { return preRequisites.ToList(); } }
@@ -20,7 +21,7 @@ namespace Registration.Models
         public HashSet<Course> CoRequisites { set { coRequisites = value; } }
         public List<Course> CoReq { get { return coRequisites.ToList(); } }
 
-        public Course(Department department, int number, string subject, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq, bool lab = false)
+        public Course(Department department, int number, string subject, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq, bool isLab = false)
         {
             this.department = department;
             this.number = number;
