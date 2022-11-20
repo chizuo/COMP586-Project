@@ -27,6 +27,7 @@ namespace Registration.Models
         protected string personType;
         public string Type { get { return personType; } }
         protected Dictionary<string, List<Section>> schedule;
+        public Dictionary<string, List<Section>> Schedule{get {return schedule;}}
 
         // Constructor with optional arguments
         public Person(int id, string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
@@ -143,6 +144,12 @@ namespace Registration.Models
             }
 
             return courseList;
+        }
+
+        public string courseData(Course course){
+           var courseInfo = new List<string>();
+           string name = course.Name;
+           return name;
         }
 
         public void updateInfo(string middle = "", string email = "", string areaCode = "", string phone = "", string address = "", string city = "", string state = "", string zip = "")

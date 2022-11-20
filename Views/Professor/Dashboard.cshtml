@@ -42,15 +42,19 @@
                     <th>Students</th>
                     <th>Start/End Date</th>
                 </tr>
-                <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                    <th>Days/Times</th>
-                    <th>Room</th>
-                    <th>Gradebook</th>
-                    <th>Students</th>
-                    <th>Start/End Date</th>
-                </tr>
+                @foreach (var course in @Model.coursesInSchedule())
+                    {
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Days/Times</th>
+                            <th>Room</th>
+                            <th>Gradebook</th>
+                            <th>Students</th>
+                            <th>Start/End Date</th>
+                        </tr>  
+                    }
+                
             </table>
         </div>
     </div>
