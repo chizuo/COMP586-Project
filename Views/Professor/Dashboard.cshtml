@@ -6,55 +6,53 @@
 
 
 <h2>Professor Dashboard</h2>
-        @*
-        <table class="table">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => Professor)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Age)
-                </th>
-                <th></th>
-            </tr>
-        *@
-    <div class="card" id="card">
-        <div class="card-body">
-            <h3 class="card-title">Welcome, @Model.Name</h3>
-            <p class="card-text">ID: @Model.ID</p>
-            <p class="card-text">Address: @Model.Address </p>
-            <p class="card-text">Telephone: @Model.Phone</p>
-            <p class="card-text">Email: @Model.Email</p>
-            <button onclick="OnUpdate">Update</button>
-        </div>
+@*
+    <table class="table">
+    <tr>
+    <th>
+    @Html.DisplayNameFor(model => Professor)
+    </th>
+    <th>
+    @Html.DisplayNameFor(model => model.Age)
+    </th>
+    <th></th>
+    </tr>
+*@
+<div class="card" id="card">
+    <div class="card-body">
+        <h3 class="card-title">Welcome, @Model.Name</h3>
+        <p class="card-text">ID: @Model.ID</p>
+        <p class="card-text">Address: @Model.Address </p>
+        <p class="card-text">Telephone: @Model.Phone</p>
+        <p class="card-text">Email: @Model.Email</p>
+        <button onclick="OnUpdate">Update</button>
     </div>
+</div>
 
-     <div class="card" id="schedulecard">
-        <div class="card-body">
-            <h3 class="card-title">My Schedule</h3>
-            <table id="coursetable">
+<div class="card" id="schedulecard">
+    <div class="card-body">
+        <h3 class="card-title">My Schedule</h3>
+        <table id="coursetable">
+            <tr>
+                <th>Class</th>
+                <th>Days/Times</th>
+                <th>Room</th>
+                <th>Gradebook</th>
+                <th>Students</th>
+                <th>Start/End Date</th>
+            </tr>
+            @foreach (var section in Model.cachedSections)
+            {
                 <tr>
-                    <th>Class</th>
-                    <th>Description</th>
-                    <th>Days/Times</th>
-                    <th>Room</th>
+                    <th>@Model.secName()</th>
+                    <th>@Model.secDay() @Model.secTime()</th>
+                    <th>@Model.secLocation()</th>
                     <th>Gradebook</th>
                     <th>Students</th>
-                    <th>Start/End Date</th>
+                    <th>@Model.date()</th>
                 </tr>
-                @foreach (var course in @Model.coursesInSchedule())
-                    {
-                        <tr>
-                            <th>Name</th>
-                            <th>Description</th>
-                            <th>Days/Times</th>
-                            <th>Room</th>
-                            <th>Gradebook</th>
-                            <th>Students</th>
-                            <th>Start/End Date</th>
-                        </tr>  
-                    }
-                
-            </table>
-        </div>
+            }
+
+        </table>
     </div>
+</div>
