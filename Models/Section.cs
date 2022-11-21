@@ -1,3 +1,4 @@
+using System.Globalization;
 namespace Registration.Models
 {
     public class Section
@@ -141,5 +142,25 @@ namespace Registration.Models
         {
             return course.Units;
         }
+
+        public string getDay()
+        {
+            var secDay = new System.Text.StringBuilder();
+
+            foreach (string day in classDays)
+            {
+                secDay.AppendLine(day.ToString());
+            }
+            return secDay.ToString();
+        }
+        public string getTime()
+        {
+
+            DateTime st = DateTime.ParseExact(startTime.ToString(), "HHmm", null, DateTimeStyles.None);
+            st.ToString("HH:mm tt");
+            DateTime et = DateTime.ParseExact(endTime.ToString(), "HHmm", null, DateTimeStyles.None);
+            return st.ToString("HH:mm tt") + " - " + et.ToString("HH:mm tt");
+        }
     }
 }
+

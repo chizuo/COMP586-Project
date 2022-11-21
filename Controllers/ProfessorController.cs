@@ -60,9 +60,11 @@ namespace Registration.Controllers
 
             if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
-                db_professors[user.id].cachedSections.Add(db_sections["section380"]);
-                db_professors[user.id].cachedSections.Add(db_sections["section381"]);
-                db_professors[user.id].cachedSections.Add(db_sections["section615"]);
+                db_professors[user.id].Sections.Add(db_sections["section380"]);
+                db_professors[user.id].Sections.Add(db_sections["section381"]);
+                db_professors[user.id].Sections.Add(db_sections["section615"]);
+                db_professors[user.id].Sections.Add(db_sections["section565"]);
+                db_professors[user.id].Sections.Add(db_sections["section620"]);
                 return View("Dashboard", db_professors[user.id]);
             }
             else

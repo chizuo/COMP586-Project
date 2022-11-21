@@ -32,27 +32,29 @@
 <div class="card" id="schedulecard">
     <div class="card-body">
         <h3 class="card-title">My Schedule</h3>
-        <table id="coursetable">
-            <tr>
-                <th>Class</th>
-                <th>Days/Times</th>
-                <th>Room</th>
-                <th>Gradebook</th>
-                <th>Students</th>
-                <th>Start/End Date</th>
-            </tr>
-            @foreach (var section in Model.cachedSections)
-            {
+        <div class="scrollit">
+            <table id="coursetable">
                 <tr>
-                    <th>@Model.secName()</th>
-                    <th>@Model.secDay() @Model.secTime()</th>
-                    <th>@Model.secLocation()</th>
+                    <th>Class</th>
+                    <th>Days/Times</th>
+                    <th>Room</th>
                     <th>Gradebook</th>
                     <th>Students</th>
-                    <th>@Model.date()</th>
+                    <th>Start/End Date</th>
                 </tr>
-            }
+                @for (int i = 0; i < @Model.Sections.Count; i++)
+                {
+                    <tr>
+                        <th>@Model.Sections[i].getCourseName()</th>
+                        <th>@Model.Sections[i].getDay() @Model.Sections[i].getTime()</th>
+                        <th>@Model.Sections[i].classLocation</th>
+                        <th>Gradebook</th>
+                        <th>Students</th>
+                        <th>@Model.Sections[i].startDate - @Model.Sections[i].endDate</th>
+                    </tr>
+                }
 
-        </table>
+            </table>
+        </div>
     </div>
 </div>
