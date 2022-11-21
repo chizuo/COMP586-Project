@@ -146,21 +146,6 @@ namespace Registration.Models
 
             return courseList;
         }
-
-        public string courseData()
-        {
-            var courseList = new List<string>();
-            courseList = coursesInSchedule();
-            foreach (string courses in courseList)
-            {
-                foreach (var section in schedule[courses])
-                {
-                    return section.getCourseName();
-                }
-            }
-            return "no name";
-        }
-
         public void updateInfo(string middle = "", string email = "", string areaCode = "", string phone = "", string address = "", string city = "", string state = "", string zip = "")
         {
             this.middle = middle.Length > 0 ? middle : this.middle;
