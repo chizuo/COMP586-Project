@@ -27,6 +27,7 @@ namespace Registration.Models
         protected string personType;
         public string Type { get { return personType; } }
         protected Dictionary<string, List<Section>> schedule;
+        public Dictionary<string, List<Section>> Schedule { get { return schedule; } }
 
         // Constructor with optional arguments
         public Person(int id, string first, string last, string gender, int birthMonth, int birthDay, int birthYear, string address, string city, string state, string zip, string personType, Dictionary<string, List<Section>>? schedule = null, string middle = "", string email = "", string areaCode = "", string phone = "")
@@ -132,6 +133,7 @@ namespace Registration.Models
         public List<string> coursesInSchedule()
         {
             var courseList = new List<string>();
+
             var week = new List<string>() { "M", "T", "W", "Th", "F", "Sa" };
 
             foreach (var day in week)
@@ -144,7 +146,6 @@ namespace Registration.Models
 
             return courseList;
         }
-
         public void updateInfo(string middle = "", string email = "", string areaCode = "", string phone = "", string address = "", string city = "", string state = "", string zip = "")
         {
             this.middle = middle.Length > 0 ? middle : this.middle;

@@ -6,7 +6,7 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
+        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "admin" } };
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
             {"123456789", new Professor(123456789, "Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127",
@@ -22,6 +22,7 @@ namespace Registration.Controllers
         };
 
         static Department comp = new Department("Computer Science", "COMP", db_professors["123456789"]);
+
 
         static Dictionary<string, Course> db_courses = new Dictionary<string, Course>()
         {
@@ -56,8 +57,14 @@ namespace Registration.Controllers
 
         public ActionResult dashboard(User user)
         {
+
             if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
+                db_professors[user.id].Sections.Add(db_sections["section380"]);
+                db_professors[user.id].Sections.Add(db_sections["section381"]);
+                db_professors[user.id].Sections.Add(db_sections["section615"]);
+                db_professors[user.id].Sections.Add(db_sections["section565"]);
+                db_professors[user.id].Sections.Add(db_sections["section620"]);
                 return View("Dashboard", db_professors[user.id]);
             }
             else
