@@ -1,7 +1,7 @@
 using System.ComponentModel;
 namespace Registration.Models
 {
-    public class Login
+    public class User
     {
         [DisplayName("Enter your id")]
         public string id { get; set; }
