@@ -26,6 +26,7 @@ namespace Registration.Controllers
 
         static Department comp = new Department("Computer Science", "COMP", db_professors["123456789"]);
 
+
         static Dictionary<string, Course> db_courses = new Dictionary<string, Course>()
         {
             {"Comp380", new Course(comp, 380, "Intro Senior Project", 3,"Concepts and techniques for systems engineering, requirements analysis, design, implementation and testing of large-scale computer systems.", new HashSet<Course>(), new HashSet<Course>())},
@@ -59,6 +60,7 @@ namespace Registration.Controllers
 
         public ActionResult dashboard(Login login)
         {
+
             using (var db = new Context())
             {
                 var status = db.login.Where(l => l.id == login.id && l.password == login.password).FirstOrDefault();
@@ -72,10 +74,15 @@ namespace Registration.Controllers
                     return View("Dashboard", db_professors[login.id]);
                 }
             }
-
-            /*
+           
+           /*
             if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
+                db_professors[user.id].Sections.Add(db_sections["section380"]);
+                db_professors[user.id].Sections.Add(db_sections["section381"]);
+                db_professors[user.id].Sections.Add(db_sections["section615"]);
+                db_professors[user.id].Sections.Add(db_sections["section565"]);
+                db_professors[user.id].Sections.Add(db_sections["section620"]);
                 return View("Dashboard", db_professors[user.id]);
             }
             else
@@ -84,6 +91,7 @@ namespace Registration.Controllers
                 return View("Index");
             }
             */
+            
         }
     }
 }

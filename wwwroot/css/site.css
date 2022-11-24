@@ -51,9 +51,16 @@ body {
 }
 /*Card for Professor Schedule*/
 #schedulecard{
-  height: 300px;
+  height: 425px;
   width: 750px
 }
+/*Scroll for Professor Schedule*/
+.scrollit {
+  overflow-y:scroll;
+  height:350px;
+  overflow-x: hidden
+}
+
 
 /*Table styling for Courses*/
 table#coursetable table{
