@@ -1,5 +1,6 @@
+using System.Data;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Encodings.Web;
+
 
 using Registration.Models;
 
@@ -8,7 +9,7 @@ namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
-        static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
+        //static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "Comp#586" } };
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
             {"123456789", new Professor(123456789, "Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127",
@@ -56,8 +57,23 @@ namespace Registration.Controllers
             return View();
         }
 
-        public ActionResult dashboard(User user)
+        public ActionResult dashboard(Login login)
         {
+            using (var db = new Context())
+            {
+                var status = db.login.Where(l => l.id == login.id && l.password == login.password).FirstOrDefault();
+                if (status == null)
+                {
+                    ViewData["message"] = "The credentials you entered are incorrect";
+                    return View("Index");
+                }
+                else
+                {
+                    return View("Dashboard", db_professors[login.id]);
+                }
+            }
+
+            /*
             if (db_login.ContainsKey(user.id) && user.password == db_login[user.id])
             {
                 return View("Dashboard", db_professors[user.id]);
@@ -67,6 +83,7 @@ namespace Registration.Controllers
                 ViewData["message"] = "The credentials you entered are incorrect";
                 return View("Index");
             }
+            */
         }
     }
 }
