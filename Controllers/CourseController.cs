@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
 using Registration.Models;
 
+
 namespace Registration.Controllers
 {
     public class CourseController : Controller
@@ -33,6 +34,18 @@ namespace Registration.Controllers
 
         public ActionResult index(string? course = null)
         {
+            using (var db = new Context())
+            {
+                var courseRespone = db.DbCourses.Where(c => c.number == 380).FirstOrDefault();
+                if (courseRespone == null)
+                {
+
+                }
+                else
+                {
+                    Console.WriteLine(courseRespone.description);
+                }
+            }
             pre.Add(db_courses["COMP380"]);
             pre.Add(db_courses["COMP381"]);
             co.Add(db_courses["COMP565"]);
