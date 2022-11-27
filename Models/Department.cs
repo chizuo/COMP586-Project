@@ -6,10 +6,10 @@ namespace Registration.Models
         public string Name { get { return name; } }
         protected string code;
         public string Code { get { return code; } }
-        protected Professor professor;
+        protected Professor? professor;
         public Professor Chair { get { return professor; } set { professor = value; } }
 
-        public Department(string name, string code, Professor professor)
+        public Department(string name, string code, Professor? professor)
         {
             this.name = name;
             this.code = code;
