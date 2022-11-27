@@ -9,7 +9,7 @@ namespace Registration.Models
         protected Professor? professor;
         public Professor Chair { get { return professor; } set { professor = value; } }
 
-        public Department(string name, string code, Professor? professor)
+        public Department(string name, string code, Professor? professor = null)
         {
             this.name = name;
             this.code = code;
