@@ -36,6 +36,7 @@ namespace Registration.Controllers
             {"Comp615", new Course(comp, 615, "Advanced Topics in Computation Theory", 3,"Languages and the theory of computation are studied in depth.", new HashSet<Course>(), new HashSet<Course>())},
         };
 
+/*
         static Dictionary<string, Section> db_sections = new Dictionary<string, Section>()
         {
             {"section380", new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
@@ -48,6 +49,8 @@ namespace Registration.Controllers
             {"section615", new Section(db_courses["Comp615"], 10007, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "M" }, 1900, 2145, "JD6617", "M", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
         };
 
+    */
+
         // GET: /Professor/
         public ActionResult index()
         {
@@ -55,18 +58,23 @@ namespace Registration.Controllers
             return View();
         }
 
-        public ActionResult dashboard(Login login)
-        {
-            using (var db = new Context())
-            {
-                var status = db.login.Where(m => m.id == login.id && m.password == login.password).FirstOrDefault();
-                if (status == null)
-                {
-                    ViewData["message"] = "The credentials you entered are incorrect";
-                    return View("Index");
-                }
-                else
-                {
+
+
+
+//        public ActionResult dashboard(Login login)
+       // {
+           // using (var db = new Context())
+          //  {
+          //      var status = db.login.Where(m => m.id == login.id && m.password == login.password).FirstOrDefault();
+         //      if (status == null)
+         ///       {
+           //         ViewData["message"] = "The credentials you entered are incorrect";
+//                    return View("Index");
+             //   }
+
+                //else
+               // {
+                    /*
                     db_professors[login.id].Sections.Add(db_sections["section380"]);
                     db_professors[login.id].Sections.Add(db_sections["section381"]);
                     db_professors[login.id].Sections.Add(db_sections["section615"]);
@@ -91,6 +99,7 @@ namespace Registration.Controllers
                 return View("Index");
             }
             */
+            
         }
+
     }
-}

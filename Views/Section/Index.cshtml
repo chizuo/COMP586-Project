@@ -1,0 +1,25 @@
+@model Registration.Models.Section
+@{
+    ViewData["Title"] = "Section View";
+}
+
+<h1>Section View</h1>
+
+<div>Course List</div>
+
+<table id="coursetable">
+    
+                
+                
+                
+                {
+                    <tr>
+                        
+                        <th>courseName - courseDescription - number of units</th>
+                        <th>@Model.sectionNumber</th>
+                        
+                      
+                    </tr>
+                }
+
+            </table>
