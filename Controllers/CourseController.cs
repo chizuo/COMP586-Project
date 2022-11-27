@@ -36,7 +36,7 @@ namespace Registration.Controllers
         {
             using (var db = new Context())
             {
-                var courseRespone = db.DbCourses.Where(c => c.number == 380).FirstOrDefault();
+                var courseRespone = db.dbCourses.Where(c => c.number == 380).FirstOrDefault();
                 if (courseRespone == null)
                 {
 
