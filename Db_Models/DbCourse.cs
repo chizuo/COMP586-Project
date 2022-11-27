@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Registration.Db_Models
 {
-    public class DbCourse
+    public class dbCourse
     {
         [Key]
         public string course_Id { get; set; }

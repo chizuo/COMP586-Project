@@ -69,7 +69,7 @@ namespace Registration.Controllers
 
                 else
                 {
-                    var courseRespone = db.DbCourses.Where(m => m.course_Id == "COMP380").FirstOrDefault(); ;
+                    var courseRespone = db.dbCourses.Where(m => m.course_Id == "COMP380").FirstOrDefault(); ;
                     Console.WriteLine(courseRespone.subject);
                     db_professors[login.id].Sections.Add(db_sections["section380"]);
                     db_professors[login.id].Sections.Add(db_sections["section381"]);
