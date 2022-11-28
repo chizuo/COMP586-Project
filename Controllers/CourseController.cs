@@ -41,10 +41,16 @@ namespace Registration.Controllers
 
 
                 var preRespone = db.dbPreReqs.AsNoTracking().Where(pre => pre.course_Id == "COMP586").ToList();
+                var coreRespone = db.dbCoreReqs.AsNoTracking().Where(core => core.course_Id == "COMP490").ToList();
 
                 foreach (var preReq in preRespone)
                 {
                     Console.WriteLine(preReq.prereq_Id);
+                }
+
+                foreach (var coreReq in coreRespone)
+                {
+                    Console.WriteLine(coreReq.coreq_Id);
                 }
 
                 Department Comp = new Department(deptRespone.name, deptRespone.code, null);
