@@ -8,6 +8,7 @@ namespace Registration.Models
         public DbSet<dbCourse> dbCourses { get; set; }
         public DbSet<dbDepartment> dbDepartments { get; set; }
         public DbSet<dbPreReq> dbPreReqs { get; set; }
+        public DbSet<dbCoreReq> dbCoreReqs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlite(@"Data Source=Data/Registration.db");
