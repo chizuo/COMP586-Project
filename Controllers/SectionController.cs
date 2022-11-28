@@ -7,15 +7,9 @@ namespace Registration.Section
     public class SectionController : Controller
     {
 
-        //string section
         public ActionResult sectionsearch()
         {
             return View();
         }
-
-
-
-
-
     }
 }
