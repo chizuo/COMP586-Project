@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Section}/{action=index}/{id?}");
+    pattern: "{controller=Section}/{action=sectionsearch}/{id?}");
 
 app.Run();

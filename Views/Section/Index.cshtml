@@ -3,23 +3,18 @@
     ViewData["Title"] = "Section View";
 }
 
-<h1>Section View</h1>
+<h1>Section Index View</h1>
 
-<div>Course List</div>
+<div>Section Description</div>
 
-<table id="coursetable">
-    
-                
-                
-                
-                {
-                    <tr>
-                        
-                        <th>courseName - courseDescription - number of units</th>
-                        <th>@Model.sectionNumber</th>
-                        
-                      
-                    </tr>
-                }
-
-            </table>
+<div id="course">
+    <h2 id="course-header"><span>Section:</span> @Model.getCourseName() (@Model.getUnits())</h2>
+    <hr>
+    <div id="course-card">
+        <div id="contents">
+            <p><span>Schedule:</span> @Model.getDay() @Model.getTime()</p>
+            <p><span>Enrollment Size:</span> @Model.enrollment</p>
+            <p><span>Description:</span> @Model.Course.description</p>
+        </div>
+    </div>
+</div>
