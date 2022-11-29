@@ -1,10 +1,12 @@
 using Microsoft.EntityFrameworkCore;
-using Registration.DbModels;
-namespace Registration.Models
+
+namespace Registration.DbModels
 {
     public class Context : DbContext
     {
         public DbSet<Login> login { get; set; }
+        public DbSet<dbPerson> dbPeople { get; set; }
+        public DbSet<dbSection> dbSections { get; set; }
         public DbSet<dbCourse> dbCourses { get; set; }
         public DbSet<dbDepartment> dbDepartments { get; set; }
         public DbSet<dbPreReq> dbPreReqs { get; set; }
