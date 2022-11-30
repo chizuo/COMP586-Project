@@ -65,8 +65,10 @@ namespace Registration.Controllers
                     ViewData["message"] = "The credentials you entered are incorrect";
                     return View("Index");
                 }
+
                 else
                 {
+
                     db_professors[login.id].Sections.Add(db_sections["section380"]);
                     db_professors[login.id].Sections.Add(db_sections["section381"]);
                     db_professors[login.id].Sections.Add(db_sections["section615"]);

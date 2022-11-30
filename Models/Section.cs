@@ -4,6 +4,7 @@ namespace Registration.Models
     public class Section
     {
         protected Course course;
+        public Course Course {get { return course; } }
         protected Professor? professor;
         public int sectionNumber;
         public string schoolYear;

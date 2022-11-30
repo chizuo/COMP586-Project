@@ -1,0 +1,22 @@
+@model Registration.Models.Section
+@{
+    ViewData["Title"] = "Section View";
+}
+
+
+@*THIS VIEW IS WORK IN PROGRESS-DISREGARD FOR NOW*@
+<h1>Section Index View</h1>
+
+<div>Section Description</div>
+
+<div id="course">
+    <h2 id="course-header"><span>Section:</span> @Model.getCourseName() (@Model.getUnits())</h2>
+    <hr>
+    <div id="course-card">
+        <div id="contents">
+            <p><span>Schedule:</span> @Model.getDay() @Model.getTime()</p>
+            <p><span>Enrollment Size:</span> @Model.enrollment</p>
+            <p><span>Description:</span> @Model.Course.description</p>
+        </div>
+    </div>
+</div>
