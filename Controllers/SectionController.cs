@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
 using Registration.Models;
 
-namespace Registration.Section
+namespace Registration.Controllers
 {
     public class SectionController : Controller
     {
