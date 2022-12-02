@@ -1,0 +1,89 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>240</y><w>200</w><h>480</h></coordinates><panel_attributes>Person
+--
+#id: int
++ID: int
+#first: string
+#middle: string
+#last: string
++&lt;&lt;get&gt;&gt; Name: string
+#gender: string
++&lt;&lt;get&gt;&gt; Gender: string
+#birthMonth: int
+#birthDay: int
+#birthYear: int
++&lt;&lt;get&gt;&gt; Birthday: string
+#email: string
++&lt;&lt;get&gt;&gt; Email: string
+#areaCode: string
+#phoneNumber: string
++&lt;&lt;get&gt;&gt; Phone: string
+#address: string
+#city: string
+#state: string
+#zip: string
++&lt;&lt;get&gt;&gt; Address: string
+#personType: string
++&lt;&lt;get&gt;&gt; Type: string
+#schedule: Dictionary&lt;&gt;
+--
++addSection: void
++removeSection: Boolean
++scheduler: Boolean
++coursesInSchedule: List&lt;string&gt;
++updateInfo: void
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>10</y><w>200</w><h>90</h></coordinates><panel_attributes>Professor
+--
++cachedSections: Dictionary&lt;&gt;
+--
++cacheSection: void
++unCacheSection: void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>530</x><y>10</y><w>200</w><h>90</h></coordinates><panel_attributes>Student
+--
+#transcript: List&lt;&gt;
++&lt;&lt;get, set&gt;&gt; Transcript: List&lt;&gt;
++&lt;&lt;get&gt;&gt; GPA: double
+--
++overallGPA: double
++coursesPassed: List&lt;string&gt;</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>20</x><y>10</y><w>210</w><h>170</h></coordinates><panel_attributes>Course
+--
++deptName: string
++courseNumber: int
++courseName: string
++units: int
++courseDescription: string
++preRequisites: HashSet&lt;&gt;
++coRequisites: HashSet&lt;&gt;
+--
++getName: string
++requirements: Boolean
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>300</x><y>130</y><w>210</w><h>60</h></coordinates><panel_attributes>User
+--
++&lt;&lt;get,set&gt;&gt; id: string
++&lt;&lt;get,set&gt;&gt; password: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>750</x><y>10</y><w>210</w><h>410</h></coordinates><panel_attributes>Section
+--
+#course: Course
+#professor: Professor
++sectionNumber: int
++schoolYear: string
++schoolTerm: string
++enrollmentCap: int
++enrollment: List&lt;Student&gt;
++waitListcap: int
++waitListTotal: int
++classDays: string[]
++startTime: int
++endTime: int
++classLocation: string
++startDate: DateOnly
++endDate: DateOnly
++classNote: string
++addNumbers: Dictionary&lt;&gt;
+--
++generateAddNumber: int
++addStudent: bool
++removeStudent: bool
++addProfessor: bool
++replaceProfessor: bool
++getProfessorFullName: string
++getCourseName: string
++getUnits: string</panel_attributes><additional_attributes></additional_attributes></element></diagram>
