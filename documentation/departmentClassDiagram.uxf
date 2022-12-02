@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>200</w><h>130</h></coordinates><panel_attributes>Professor
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>60</x><y>40</y><w>200</w><h>130</h></coordinates><panel_attributes>Department
 --
 #name: string
 +&lt;&lt;get&gt;&gt; Name: string

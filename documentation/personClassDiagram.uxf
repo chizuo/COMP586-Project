@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>200</w><h>410</h></coordinates><panel_attributes>Person
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>10</y><w>200</w><h>410</h></coordinates><panel_attributes>Person
 --
 #id: int
 +ID: int

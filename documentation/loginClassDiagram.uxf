@@ -1,4 +1,4 @@
-<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>210</w><h>60</h></coordinates><panel_attributes>Login
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>40</x><y>40</y><w>210</w><h>60</h></coordinates><panel_attributes>Login
 --
 +&lt;&lt;get,set&gt;&gt; id: string
 +&lt;&lt;get,set&gt;&gt; password: string
