@@ -1,0 +1,9 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>60</x><y>40</y><w>200</w><h>130</h></coordinates><panel_attributes>Department
+--
+#name: string
++&lt;&lt;get&gt;&gt; Name: string
+#code: string
++&lt;&lt;get&gt;&gt; Code: string
+#professor: Professor
++&lt;&lt;get,set&gt;&gt; Chair: Professor
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

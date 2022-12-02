@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>10</x><y>10</y><w>210</w><h>310</h></coordinates><panel_attributes>Section
+--
+#course: Course
++&lt;&lt;get&gt;&gt; Course: Course
+#professor: Professor
++sectionNumber: int
++schoolYear: string
++schoolTerm: string
++enrollmentCap: int
++enrollment: List&lt;Student&gt;
++waitListcap: int
++waitListTotal: int
++classDays: string[]
++startTime: int
++endTime: int
++classLocation: string
++startDate: DateOnly
++endDate: DateOnly
++classNote: string
++addNumbers: Dictionary&lt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

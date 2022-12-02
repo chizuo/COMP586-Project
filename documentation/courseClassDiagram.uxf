@@ -1,0 +1,21 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>30</x><y>10</y><w>210</w><h>300</h></coordinates><panel_attributes>Course
+--
+#department: Department
+#number: int
+#subject: string
++&lt;&lt;get&gt;&gt; Subject: string
++Name: string
++Code: string
+#units: int
++&lt;&lt;get&gt;&gt; Units: int
+#isLab: bool
++&lt;&lt;get&gt;&gt; IsLab: bool
+~lab: Course
+~description: string
+#preRequisites: HashSet&lt;&gt;
++&lt;&lt;set&gt;&gt; PreRequisites: HashSet&lt;&gt;
++&lt;&lt;get&gt;&gt; PreReq: List&lt;&gt;
+#coRequisites: HashSet&lt;&gt;
++&lt;&lt;set&gt;&gt; CoRequisites: HashSet&lt;&gt;
++&lt;&lt;get&gt;&gt; CoReq: List&lt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>

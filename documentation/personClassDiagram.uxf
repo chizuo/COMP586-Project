@@ -1,0 +1,29 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>30</x><y>10</y><w>200</w><h>410</h></coordinates><panel_attributes>Person
+--
+#id: int
++ID: int
+#first: string
+#middle: string
+#last: string
++&lt;&lt;get&gt;&gt; Name: string
+#gender: string
++&lt;&lt;get&gt;&gt; Gender: string
+#birthMonth: int
+#birthDay: int
+#birthYear: int
++&lt;&lt;get&gt;&gt; Birthday: string
+#email: string
++&lt;&lt;get&gt;&gt; Email: string
+#areaCode: string
+#phoneNumber: string
++&lt;&lt;get&gt;&gt; Phone: string
+#address: string
+#city: string
+#state: string
+#zip: string
++&lt;&lt;get&gt;&gt; Address: string
+#personType: string
++&lt;&lt;get&gt;&gt; Type: string
+#schedule: Dictionary&lt;&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element></diagram>
