@@ -8,7 +8,7 @@ namespace Registration.Controllers
 {
     public class CourseController : Controller
     {
-
+        /*
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
             {"123456789", new Professor(123456789, "Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127",
@@ -28,7 +28,7 @@ namespace Registration.Controllers
             {"COMP620", new Course(comp, 620, "Computer System Architecture", 3,"Analysis and evaluation of individual computers, networks of computers and the programs which support their operation and use.", new HashSet<Course>(), new HashSet<Course>())},
             {"COMP615", new Course(comp, 615, "Advanced Topics in Computation Theory", 3,"Languages and the theory of computation are studied in depth.", new HashSet<Course>(), new HashSet<Course>())},
         };
-
+        */
         static HashSet<Course> pre = new HashSet<Course>();
         static HashSet<Course> co = new HashSet<Course>();
 
@@ -36,34 +36,51 @@ namespace Registration.Controllers
         {
             using (var db = new Context())
             {
-                var courseRespone = db.dbCourses.Where(c => c.course_Id == "COMP586").FirstOrDefault();
-                var deptRespone = db.dbDepartments.Where(d => d.code == "COMP").FirstOrDefault();
+                var courseRespone = db.dbCourses.Single(c => c.course_Id == "COMP380");
+                var deptRespone = db.dbDepartments.Single(d => d.code == courseRespone.department);
+                var preRespone = db.dbPreReqs.AsNoTracking().Where(pre => pre.course_Id == "COMP380");
+                var coRespone = db.dbCoReqs.AsNoTracking().Where(core => core.course_Id == "COMP380");
 
-
-                var preRespone = db.dbPreReqs.AsNoTracking().Where(pre => pre.course_Id == "COMP586").ToList();
-                var coreRespone = db.dbCoreReqs.AsNoTracking().Where(core => core.course_Id == "COMP490").ToList();
+                Department Comp = new Department(deptRespone.name, deptRespone.code, null);
+                Course courseObject = new Course(Comp, courseRespone.number, courseRespone.subject, courseRespone.units, courseRespone.description, new HashSet<Course>(), new HashSet<Course>(), courseRespone.isLab);
 
                 foreach (var preReq in preRespone)
                 {
                     Console.WriteLine(preReq.prereq_Id);
+                    var prerequisites = db.dbCourses.AsNoTracking().Where(pre => pre.course_Id == preReq.prereq_Id);
+                    foreach (var preCourse in prerequisites)
+                    {
+                        Console.WriteLine(preCourse.subject);
+                        Course preObject = new Course(Comp, preCourse.number, preCourse.subject, preCourse.units, preCourse.description, new HashSet<Course>(), new HashSet<Course>(), courseRespone.isLab);
+                        pre.Add(preObject);
+                    }
                 }
+                courseObject.PreRequisites = pre;
 
-                foreach (var coreReq in coreRespone)
+                foreach (var coReq in coRespone)
                 {
-                    Console.WriteLine(coreReq.coreq_Id);
+                    Console.WriteLine(coReq.coreq_Id);
+                    var corequisites = db.dbCourses.AsNoTracking().Where(co => co.course_Id == coReq.coreq_Id);
+                    foreach (var coCourse in corequisites)
+                    {
+                        Console.WriteLine(coCourse.subject);
+                        Course coObject = new Course(Comp, coCourse.number, coCourse.subject, coCourse.units, coCourse.description, new HashSet<Course>(), new HashSet<Course>(), coCourse.isLab);
+                        Console.WriteLine(coObject.Code);
+                        co.Add(coObject);
+                    }
                 }
+                courseObject.CoRequisites = co;
 
-                Department Comp = new Department(deptRespone.name, deptRespone.code, null);
-                Course courseObject = new Course(Comp, courseRespone.number, courseRespone.subject, courseRespone.units, courseRespone.description, pre, co, courseRespone.isLab);
-                //Console.WriteLine(preRespone);
+                return View(courseObject);
             }
+            /*
             pre.Add(db_courses["COMP380"]);
             pre.Add(db_courses["COMP381"]);
             co.Add(db_courses["COMP565"]);
             db_courses["COMP586"].PreRequisites = pre;
             db_courses["COMP586"].CoRequisites = co;
             course = course != null ? course : "COMP586";
-            return View(db_courses[course]);
+            */
         }
     }
 }

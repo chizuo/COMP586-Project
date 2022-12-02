@@ -2,15 +2,17 @@ using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
 using Registration.Models;
 using Registration.DbModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace Registration.Controllers
 {
     public class ProfessorController : Controller
     {
         //static Dictionary<string, string> db_login = new Dictionary<string, string>() { { "123456789", "admin" } };
-        static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
+        /*
+        static Dictionary<int, Professor> db_professors = new Dictionary<int, Professor>()
         {
-            {"123456789", new Professor(123456789, "Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127",
+            {123456789, new Professor(123456789, "Brandon", "Sorto", "Male", 01, 01, 1000, "45800 Challenger Way Spc 127",
             "Lancaster", "CA", "93535", "Professor", null, middle:"",email:"brandon.sorto@csun.edu", areaCode:"310", phone:"455-8990")}
         };
 
@@ -22,7 +24,7 @@ namespace Registration.Controllers
             {"4444", new Student(4444, "Carolina", "McGarity", "Male/Female", 01, 01, 1050, "Street address", "City Name", "State initals", "00000", "Student", null)},
         };
 
-        static Department comp = new Department("Computer Science", "COMP", db_professors["123456789"]);
+        static Department comp = new Department("Computer Science", "COMP", db_professors[123456789]);
 
 
         static Dictionary<string, Course> db_courses = new Dictionary<string, Course>()
@@ -39,16 +41,16 @@ namespace Registration.Controllers
 
         static Dictionary<string, Section> db_sections = new Dictionary<string, Section>()
         {
-            {"section380", new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section381", new Section(db_courses["Comp381"], 10001, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section565", new Section(db_courses["Comp565"], 10002, "fall", "2022", 28, new List<Student>(){db_student["2234"], db_student["3334"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section584", new Section(db_courses["Comp586"], 10003, "fall", "2022", 28, new List<Student>(){db_student["2234"], db_student["3334"]}, 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section586", new Section(db_courses["Comp586"], 10004, "fall", "2022", 28, new List<Student>(){db_student["3334"], db_student["2234"]}, 15, 0, new string[] { "T" }, 1900, 2145, "JD1618", "T", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section610", new Section(db_courses["Comp610"], 10005, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "Sa" }, 1500, 1745, "JD3508", "Sa", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section620", new Section(db_courses["Comp620"], 10006, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "Th" }, 1500, 1745, "JD1105", "Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
-            {"section615", new Section(db_courses["Comp615"], 10007, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "M" }, 1900, 2145, "JD6617", "M", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors["123456789"])},
+            {"section380", new Section(db_courses["Comp380"], 10000, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section381", new Section(db_courses["Comp381"], 10001, "fall", "2022", 28, new List<Student>(){db_student["1234"]}, 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section565", new Section(db_courses["Comp565"], 10002, "fall", "2022", 28, new List<Student>(){db_student["2234"], db_student["3334"]}, 15, 0, new string[] {"M","W"}, 1900, 2145, "JD1618", "M,W", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section584", new Section(db_courses["Comp586"], 10003, "fall", "2022", 28, new List<Student>(){db_student["2234"], db_student["3334"]}, 15, 0, new string[] {"T","Th"}, 1900, 2145, "JD1618", "T,Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section586", new Section(db_courses["Comp586"], 10004, "fall", "2022", 28, new List<Student>(){db_student["3334"], db_student["2234"]}, 15, 0, new string[] { "T" }, 1900, 2145, "JD1618", "T", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section610", new Section(db_courses["Comp610"], 10005, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "Sa" }, 1500, 1745, "JD3508", "Sa", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section620", new Section(db_courses["Comp620"], 10006, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "Th" }, 1500, 1745, "JD1105", "Th", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
+            {"section615", new Section(db_courses["Comp615"], 10007, "fall", "2022", 28, new List<Student>(){db_student["4444"]}, 15, 0, new string[] { "M" }, 1900, 2145, "JD6617", "M", "Department Office: JD 4503; (818) 677-3398. College of Engineering and Computer Science.", new Dictionary<int, bool>(), db_professors[123456789])},
         };
-
+        */
         // GET: /Professor/
         public ActionResult index()
         {
@@ -69,14 +71,43 @@ namespace Registration.Controllers
 
                 else
                 {
-                    var courseRespone = db.dbCourses.Where(m => m.course_Id == "COMP380").FirstOrDefault(); ;
-                    Console.WriteLine(courseRespone.description);
-                    db_professors[login.id].Sections.Add(db_sections["section380"]);
+
+                    var personRespone = db.dbPerson.Single(p => p.id == login.id);
+                    Professor professor = new Professor(personRespone.id, personRespone.first, personRespone.last, personRespone.Gender, personRespone.birthMonth, personRespone.birthDay, personRespone.birthYear,
+                                                        personRespone.address, personRespone.city, personRespone.state, personRespone.zip, personRespone.personType, null,
+                                                        personRespone.middle, personRespone.email, personRespone.areaCode, personRespone.phone);
+
+                    var departmentRespone = db.dbDepartments.Single(d => d.code == "COMP");
+                    Department department = new Department(departmentRespone.name, departmentRespone.code, professor);
+
+                    var scheduleRespone = db.dbEnrollmentSchedules.AsNoTracking().Where(e => e.id == login.id);
+
+                    foreach (var schedule in scheduleRespone)
+                    {
+                        Console.WriteLine(schedule.sectionNumber);
+
+                        var sectionRespone = db.dbSections.AsNoTracking().Where(s => s.sectionNumber == schedule.sectionNumber);
+                        foreach (var section in sectionRespone)
+                        {
+                            Console.WriteLine(section.schoolTerm);
+                            var courseRespone = db.dbCourses.AsNoTracking().Where(c => c.course_Id == section.course_Id);
+                            foreach (var course in courseRespone)
+                            {
+                                Console.WriteLine(course.number);
+                                Course courseObject = new Course(department, course.number, course.subject, course.units, course.description, null, null, course.isLab);
+                                Section sectionObject = new Section(courseObject, section.sectionNumber, section.schoolTerm, section.schoolYear, section.enrollmentCap, null, section.waitListcap, section.waitListTotal, new string[] { "M", "W" }, section.startTime, section.endTime, section.classLocation, null, section.classNote, null, null);
+                                professor.Sections.Add(sectionObject);
+                            }
+                        }
+                    }
+
+                    /*db_professors[login.id].Sections.Add(db_sections["section380"]);
                     db_professors[login.id].Sections.Add(db_sections["section381"]);
                     db_professors[login.id].Sections.Add(db_sections["section615"]);
                     db_professors[login.id].Sections.Add(db_sections["section565"]);
                     db_professors[login.id].Sections.Add(db_sections["section620"]);
-                    return View("Dashboard", db_professors[login.id]);
+                    */
+                    return View("Dashboard", professor);
                 }
             }
             /*

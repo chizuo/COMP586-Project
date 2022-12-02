@@ -15,8 +15,8 @@ namespace Registration.Models
         public int waitListTotal;
         public string[] classDays;
         /* Time is in minutes of the day in a 24 hour clock starting at 0 (00:00) to 1439 (23:59) */
-        public int startTime;
-        public int endTime;
+        public int? startTime;
+        public int? endTime;
         public string classLocation;
         public DateOnly startDate;
         public DateOnly endDate;

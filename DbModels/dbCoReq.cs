@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 namespace Registration.DbModels
 {
-    public class dbCoreReq
+    public class dbCoReq
     {
         [Key]
         public string course_Id { get; set; }
