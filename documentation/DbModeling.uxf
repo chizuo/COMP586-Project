@@ -1,0 +1,85 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>420</x><y>300</y><w>160</w><h>70</h></coordinates><panel_attributes>dbPreReq
+--
++course_id: string
++prereq_Id: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>380</y><w>160</w><h>70</h></coordinates><panel_attributes>dbCoreReq
+--
++course_Id: string 
++coreq_Id : string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>160</y><w>160</w><h>130</h></coordinates><panel_attributes>dbCourse
+--
++course_id: string
++prereq_Id: string
++number: int
++subject: string
++units: int
++isLab: bool
++description: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>80</y><w>160</w><h>70</h></coordinates><panel_attributes>dbDepartment
+--
++name: string
++code: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>160</y><w>160</w><h>280</h></coordinates><panel_attributes>dbPerson
+--
++id: int
++first: string
++middle: string
++last: string
++Gender: string
++birthMonth: int
++birthDay: int
++birthYear: int
++email: string
++areaCode: string
++phone: string
++address: string
++city: string
++state: string 
++zip: string 
++personType: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>620</x><y>490</y><w>160</w><h>230</h></coordinates><panel_attributes>dbSection
+--
++sectionNumber: int
++schoolYear: string
++schoolTerm: string
++enrollmentCap: int
++waitListcap: int
++waitListTotal: int
++classDays: string[ ]
++startTime: int
++endTime: int
++classLocation: string
++startDate: DateOnly
++endDate: DateOnly
++classNote: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>660</x><y>220</y><w>240</w><h>220</h></coordinates><panel_attributes>Context
+--
++login: DbSet&lt;Login&gt;
++dbPeople: DbSet&lt;dbPerson&gt;
++dbSections: DbSet&lt;dbSection&gt;
++dbCourses: DbSet&lt;dbCourse&gt;
++dbDepartments: DbSet&lt;dbDepartment&gt;
++dbPreReqs: DbSet&lt;dbPreReq&gt;
++dbCoreReqs: DbSet&lt;dbCoreReq&gt;
++dbStudents: DbSet&lt;dbStudent&gt;
++dbEnrollmentSchdules:DbSet&lt;dbErollmentSchedule&gt;
++dbClassDays:DbSet&lt;dbClassDays&gt;
++dbAddNumbers:DbSet&lt;dbAddNumbers&gt;
+--
+OnConfiguring: void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>70</y><w>160</w><h>70</h></coordinates><panel_attributes>Login
+--
++id: string
++password: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>700</x><y>0</y><w>160</w><h>160</h></coordinates><panel_attributes>
+
+
+Registration Database
+SQLite</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>780</x><y>150</y><w>30</w><h>90</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;70</additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>280</y><w>70</w><h>60</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>690</x><y>430</y><w>30</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>220</y><w>110</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;60</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>330</y><w>110</w><h>100</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;80;90;10</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>110</y><w>110</w><h>130</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;90;110</additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>100</y><w>70</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>50;10;10;190</additional_attributes></element><element><id>Relation</id><coordinates><x>570</x><y>310</y><w>110</w><h>50</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;30;90;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>800</x><y>650</y><w>160</w><h>70</h></coordinates><panel_attributes>dbAddNumbers
+--
++sectionNumber: int
++addNumber: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>560</y><w>160</w><h>70</h></coordinates><panel_attributes>dbClassDays
+--
++sectionNumber: int
++class_day: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>480</y><w>160</w><h>70</h></coordinates><panel_attributes>dbEnrollmentSchedule
+--
++id: int
++sectionNumber: int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>940</x><y>450</y><w>160</w><h>70</h></coordinates><panel_attributes>dbStudent
+--
++student_id: string
++sectionNumber: int
++course_id: string
++grade: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>800</x><y>430</y><w>90</w><h>230</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>70;210;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>820</x><y>430</y><w>140</w><h>160</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>120;140;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>430</y><w>80</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>60;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>430</y><w>90</w><h>70</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;50;70;10</additional_attributes></element></diagram>

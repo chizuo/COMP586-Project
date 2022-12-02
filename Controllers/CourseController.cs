@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
+using Registration.DbModels;
 using Registration.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Registration.Controllers
 {
     public class CourseController : Controller
     {
-
 
         static Dictionary<string, Professor> db_professors = new Dictionary<string, Professor>()
         {
@@ -33,6 +34,29 @@ namespace Registration.Controllers
 
         public ActionResult index(string? course = null)
         {
+            using (var db = new Context())
+            {
+                var courseRespone = db.dbCourses.Where(c => c.course_Id == "COMP586").FirstOrDefault();
+                var deptRespone = db.dbDepartments.Where(d => d.code == "COMP").FirstOrDefault();
+
+
+                var preRespone = db.dbPreReqs.AsNoTracking().Where(pre => pre.course_Id == "COMP586").ToList();
+                var coreRespone = db.dbCoreReqs.AsNoTracking().Where(core => core.course_Id == "COMP490").ToList();
+
+                foreach (var preReq in preRespone)
+                {
+                    Console.WriteLine(preReq.prereq_Id);
+                }
+
+                foreach (var coreReq in coreRespone)
+                {
+                    Console.WriteLine(coreReq.coreq_Id);
+                }
+
+                Department Comp = new Department(deptRespone.name, deptRespone.code, null);
+                Course courseObject = new Course(Comp, courseRespone.number, courseRespone.subject, courseRespone.units, courseRespone.description, pre, co, courseRespone.isLab);
+                //Console.WriteLine(preRespone);
+            }
             pre.Add(db_courses["COMP380"]);
             pre.Add(db_courses["COMP381"]);
             co.Add(db_courses["COMP565"]);

@@ -1,5 +1,5 @@
 using System.ComponentModel;
-namespace Registration.Models
+namespace Registration.DbModels
 {
     public class Login
     {

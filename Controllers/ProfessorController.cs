@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
 using Registration.Models;
+using Registration.DbModels;
 
 namespace Registration.Controllers
 {
@@ -68,7 +69,8 @@ namespace Registration.Controllers
 
                 else
                 {
-
+                    var courseRespone = db.dbCourses.Where(m => m.course_Id == "COMP380").FirstOrDefault(); ;
+                    Console.WriteLine(courseRespone.description);
                     db_professors[login.id].Sections.Add(db_sections["section380"]);
                     db_professors[login.id].Sections.Add(db_sections["section381"]);
                     db_professors[login.id].Sections.Add(db_sections["section615"]);
