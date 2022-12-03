@@ -5,7 +5,7 @@
 +&lt;&lt;get&gt;&gt; GPA: double
 </panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>410</x><y>100</y><w>180</w><h>90</h></coordinates><panel_attributes>dbStudent
 --
-+&lt;&lt;ge,set&gt;&gt;student_id: string
++&lt;&lt;get,set&gt;&gt;student_id: string
 +&lt;&lt;get,set&gt;&gt;sectionNumber: int
 +&lt;&lt;get,set&gt;&gt;course_id: string
 +&lt;&lt;get,set&gt;&gt;grade: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>350</x><y>120</y><w>80</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;60;20</additional_attributes></element></diagram>
