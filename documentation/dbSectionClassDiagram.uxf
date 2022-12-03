@@ -1,0 +1,37 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>70</x><y>70</y><w>210</w><h>310</h></coordinates><panel_attributes>Section
+--
+#course: Course
++&lt;&lt;get&gt;&gt; Course: Course
+#professor: Professor
++sectionNumber: int
++schoolYear: string
++schoolTerm: string
++enrollmentCap: int
++enrollment: List&lt;Student&gt;
++waitListcap: int
++waitListTotal: int
++classDays: string[]
++startTime: int
++endTime: int
++classLocation: string
++startDate: DateOnly
++endDate: DateOnly
++classNote: string
++addNumbers: Dictionary&lt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>80</y><w>180</w><h>240</h></coordinates><panel_attributes>dbSection
+--
++&lt;&lt;get,set&gt;&gt;section_id: int
++&lt;&lt;get,set&gt;&gt;sectionNumber: int
++&lt;&lt;get,set&gt;&gt;schoolYear: string
++&lt;&lt;get,set&gt;&gt;schoolTerm: string
++&lt;&lt;get,set&gt;&gt;enrollmentCap: int
++&lt;&lt;get,set&gt;&gt;waitListcap: int
++&lt;&lt;get,set&gt;&gt;waitListTotal: int
++&lt;&lt;get,set&gt;&gt;classDays: string[ ]
++&lt;&lt;get,set&gt;&gt;startTime: int
++&lt;&lt;get,set&gt;&gt;endTime: int
++&lt;&lt;get,set&gt;&gt;classLocation: string
++&lt;&lt;get,set&gt;&gt;startDate: DateOnly
++&lt;&lt;get,set&gt;&gt;endDate: DateOnly
++&lt;&lt;get,set&gt;&gt;classNote: string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>170</y><w>110</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;90;20</additional_attributes></element></diagram>

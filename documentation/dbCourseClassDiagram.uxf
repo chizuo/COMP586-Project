@@ -1,0 +1,35 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>360</x><y>50</y><w>210</w><h>300</h></coordinates><panel_attributes>Course
+--
+#department: Department
+#number: int
+#subject: string
++&lt;&lt;get&gt;&gt; Subject: string
++Name: string
++Code: string
+#units: int
++&lt;&lt;get&gt;&gt; Units: int
+#isLab: bool
++&lt;&lt;get&gt;&gt; IsLab: bool
+~lab: Course
+~description: string
+#preRequisites: HashSet&lt;&gt;
++&lt;&lt;set&gt;&gt; PreRequisites: HashSet&lt;&gt;
++&lt;&lt;get&gt;&gt; PreReq: List&lt;&gt;
+#coRequisites: HashSet&lt;&gt;
++&lt;&lt;set&gt;&gt; CoRequisites: HashSet&lt;&gt;
++&lt;&lt;get&gt;&gt; CoReq: List&lt;&gt;
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>110</y><w>210</w><h>140</h></coordinates><panel_attributes>dbCourses
+--
++&lt;&lt;get,set&gt;&gt; course_Id: string
++&lt;&lt;get,set&gt;&gt; department: string
++&lt;&lt;get,set&gt;&gt; number: int
++&lt;&lt;get,set&gt;&gt; subject: string
++&lt;&lt;get,set&gt;&gt; units: int
++&lt;&lt;get,set&gt;&gt; isLab: bool
++&lt;&lt;get,set&gt;&gt; description: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>130</y><w>210</w><h>70</h></coordinates><panel_attributes>dbPreReq
+--
++&lt;&lt;get,set&gt;&gt; course_Id: string
++&lt;&lt;get,set&gt;&gt; prereq_Id: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>440</y><w>210</w><h>70</h></coordinates><panel_attributes>dbCoreReq
+--
++&lt;&lt;get,set&gt;&gt; course_Id: string
++&lt;&lt;get,set&gt;&gt; coreq_Id: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>140</y><w>100</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>160</y><w>100</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>340</y><w>30</w><h>120</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;100</additional_attributes></element></diagram>

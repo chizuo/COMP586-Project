@@ -1,0 +1,46 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>60</x><y>30</y><w>200</w><h>410</h></coordinates><panel_attributes>Person
+--
+#id: int
++ID: int
+#first: string
+#middle: string
+#last: string
++&lt;&lt;get&gt;&gt; Name: string
+#gender: string
++&lt;&lt;get&gt;&gt; Gender: string
+#birthMonth: int
+#birthDay: int
+#birthYear: int
++&lt;&lt;get&gt;&gt; Birthday: string
+#email: string
++&lt;&lt;get&gt;&gt; Email: string
+#areaCode: string
+#phoneNumber: string
++&lt;&lt;get&gt;&gt; Phone: string
+#address: string
+#city: string
+#state: string
+#zip: string
++&lt;&lt;get&gt;&gt; Address: string
+#personType: string
++&lt;&lt;get&gt;&gt; Type: string
+#schedule: Dictionary&lt;&gt;
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>360</x><y>40</y><w>170</w><h>280</h></coordinates><panel_attributes>dbPerson
+--
++&lt;&lt;get,set&gt;&gt;id: int
++&lt;&lt;get,set&gt;&gt;first: string
++&lt;&lt;get,set&gt;&gt;middle: string
++&lt;&lt;get,set&gt;&gt;last: string
++&lt;&lt;get,set&gt;&gt;Gender: string
++&lt;&lt;get,set&gt;&gt;birthMonth: int
++&lt;&lt;get,set&gt;&gt;birthDay: int
++&lt;&lt;get,set&gt;&gt;birthYear: int
++&lt;&lt;get,set&gt;&gt;email: string
++&lt;&lt;get,set&gt;&gt;areaCode: string
++&lt;&lt;get,set&gt;&gt;phone: string
++&lt;&lt;get,set&gt;&gt;address: string
++&lt;&lt;get,set&gt;&gt;city: string
++&lt;&lt;get,set&gt;&gt;state: string 
++&lt;&lt;get,set&gt;&gt;zip: string 
++&lt;&lt;get,set&gt;&gt;personType: string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>250</x><y>150</y><w>130</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element></diagram>
