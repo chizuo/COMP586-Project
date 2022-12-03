@@ -29,8 +29,8 @@ namespace Registration.Controllers
             {"COMP615", new Course(comp, 615, "Advanced Topics in Computation Theory", 3,"Languages and the theory of computation are studied in depth.", new HashSet<Course>(), new HashSet<Course>())},
         };
         */
-        static HashSet<Course> pre = new HashSet<Course>();
-        static HashSet<Course> co = new HashSet<Course>();
+        static HashSet<string> pre = new HashSet<string>();
+        static HashSet<string> co = new HashSet<string>();
 
         public ActionResult index(string? course = null)
         {
@@ -42,31 +42,26 @@ namespace Registration.Controllers
                 var coRespone = db.dbCoReqs.AsNoTracking().Where(core => core.course_Id == "COMP380");
 
                 Department Comp = new Department(deptRespone.name, deptRespone.code, null);
-                Course courseObject = new Course(Comp, courseRespone.number, courseRespone.subject, courseRespone.units, courseRespone.description, new HashSet<Course>(), new HashSet<Course>(), courseRespone.isLab);
+                Course courseObject = new Course(Comp, courseRespone.number, courseRespone.subject, courseRespone.units, courseRespone.description, new HashSet<string>(), new HashSet<string>(), courseRespone.isLab);
 
                 foreach (var preReq in preRespone)
                 {
-                    Console.WriteLine(preReq.prereq_Id);
                     var prerequisites = db.dbCourses.AsNoTracking().Where(pre => pre.course_Id == preReq.prereq_Id);
                     foreach (var preCourse in prerequisites)
                     {
-                        Console.WriteLine(preCourse.subject);
-                        Course preObject = new Course(Comp, preCourse.number, preCourse.subject, preCourse.units, preCourse.description, new HashSet<Course>(), new HashSet<Course>(), courseRespone.isLab);
-                        pre.Add(preObject);
+                        Console.WriteLine(preCourse.course_Id);
+                        pre.Add(preCourse.course_Id);
                     }
                 }
                 courseObject.PreRequisites = pre;
 
                 foreach (var coReq in coRespone)
                 {
-                    Console.WriteLine(coReq.coreq_Id);
                     var corequisites = db.dbCourses.AsNoTracking().Where(co => co.course_Id == coReq.coreq_Id);
                     foreach (var coCourse in corequisites)
                     {
-                        Console.WriteLine(coCourse.subject);
-                        Course coObject = new Course(Comp, coCourse.number, coCourse.subject, coCourse.units, coCourse.description, new HashSet<Course>(), new HashSet<Course>(), coCourse.isLab);
-                        Console.WriteLine(coObject.Code);
-                        co.Add(coObject);
+                        Console.WriteLine(coCourse.course_Id);
+                        co.Add(coCourse.course_Id);
                     }
                 }
                 courseObject.CoRequisites = co;

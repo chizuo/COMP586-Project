@@ -14,14 +14,14 @@ namespace Registration.Models
         public bool IsLab { get { return isLab; } }
         internal Course lab; /* couse that is the lab component */
         internal string description;
-        protected HashSet<Course> preRequisites;
-        public HashSet<Course> PreRequisites { set { preRequisites = value; } }
-        public List<Course> PreReq { get { return preRequisites.ToList(); } }
-        protected HashSet<Course> coRequisites;
-        public HashSet<Course> CoRequisites { set { coRequisites = value; } }
-        public List<Course> CoReq { get { return coRequisites.ToList(); } }
+        protected HashSet<string> preRequisites;
+        public HashSet<string> PreRequisites { set { preRequisites = value; } }
+        public List<string> PreReq { get { return preRequisites.ToList(); } }
+        protected HashSet<string> coRequisites;
+        public HashSet<string> CoRequisites { set { coRequisites = value; } }
+        public List<string> CoReq { get { return coRequisites.ToList(); } }
 
-        public Course(Department department, int number, string subject, int units, string courseDescription, HashSet<Course> preReq, HashSet<Course> coReq, bool isLab = false)
+        public Course(Department department, int number, string subject, int units, string courseDescription, HashSet<string> preReq, HashSet<string> coReq, bool isLab = false)
         {
             this.department = department;
             this.number = number;
@@ -44,13 +44,13 @@ namespace Registration.Models
             /* Convert course object to course name for comparison */
             foreach (var course in preRequisites)
             {
-                preReqs.Add(course.Code);
+                preReqs.Add(course);
             }
 
             /* Convert course object to course name for comparison */
             foreach (var course in coRequisites)
             {
-                coReqs.Add(course.Code);
+                coReqs.Add(course);
             }
 
             foreach (var course in student.coursesPassed())
