@@ -71,7 +71,7 @@ namespace Registration.Controllers
 
                 else
                 {
-
+        
                     var personRespone = db.dbPerson.Single(p => p.id == login.id);
                     Professor professor = new Professor(personRespone.id, personRespone.first, personRespone.last, personRespone.Gender, personRespone.birthMonth, personRespone.birthDay, personRespone.birthYear,
                                                         personRespone.address, personRespone.city, personRespone.state, personRespone.zip, personRespone.personType, null,
@@ -94,11 +94,11 @@ namespace Registration.Controllers
                             foreach (var course in courseRespone)
                             {
                                 Console.WriteLine(course.number);
-                                Course courseObject = new Course(department, course.number, course.subject, course.units, course.description, null, null, course.isLab);
-                                Section sectionObject = new Section(courseObject, section.sectionNumber, section.schoolTerm, section.schoolYear, section.enrollmentCap, null, section.waitListcap, section.waitListTotal, new string[] { "M", "W" }, section.startTime, section.endTime, section.classLocation, null, section.classNote, null, null);
+                                Course courseObject = new Course(department, course.number, course.subject, course.units, course.description, new HashSet<string>(), new HashSet<string>(), course.isLab);
+                                Section sectionObject = new Section(courseObject, section.sectionNumber, section.schoolTerm, section.schoolYear, section.enrollmentCap, section.waitListcap, section.waitListTotal, new string[] { "M", "W" }, section.startTime, section.endTime, section.classLocation, null, section.classNote, null, null);
                                 professor.Sections.Add(sectionObject);
                             }
-                        }
+                        }   
                     }
 
                     /*db_professors[login.id].Sections.Add(db_sections["section380"]);

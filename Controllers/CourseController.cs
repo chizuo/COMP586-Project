@@ -50,7 +50,6 @@ namespace Registration.Controllers
                     foreach (var preCourse in prerequisites)
                     {
                         Console.WriteLine(preCourse.course_Id);
-                        pre.Add(preCourse.course_Id);
                     }
                 }
                 courseObject.PreRequisites = pre;
@@ -61,7 +60,6 @@ namespace Registration.Controllers
                     foreach (var coCourse in corequisites)
                     {
                         Console.WriteLine(coCourse.course_Id);
-                        co.Add(coCourse.course_Id);
                     }
                 }
                 courseObject.CoRequisites = co;
