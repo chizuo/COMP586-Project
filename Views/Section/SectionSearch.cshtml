@@ -9,6 +9,8 @@
         $("#" + row).toggle();
     }
 </script>
+
+
 <script> //script for hiding tables
     let toggle = button => {
         let element = document.getElementById("table_detail2");
@@ -16,10 +18,10 @@
         if (hidden) {
             element.removeAttribute("hidden");
             button.innerText = "-";
-        } else {
+        }
+        else {
             element.setAttribute("hidden", "hidden");
             button.innerText = "+";
-
         }
     }
 </script>

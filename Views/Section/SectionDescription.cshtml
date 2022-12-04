@@ -1,0 +1,126 @@
+@model Registration.Models.Section
+@{
+    ViewData["Title"] = "SectionDescription View";
+}
+<script type="text/javascript"> //script for hiding rows
+    function showHideRow(row) {
+        $("#" + row).toggle();
+    }
+</script>
+<script> //script for hiding tables
+    let toggle = tableID => {
+        let element = document.getElementById(tableID);
+        let hidden = element.getAttribute("hidden");
+        if (hidden) {
+            element.removeAttribute("hidden");
+            button.innerText = "-";
+        }
+        else {
+            element.setAttribute("hidden", "hidden");
+            button.innerText = "+";
+        }
+    }
+</script>
+@*<button onclick="toggle(this);">+</button>*@
+<h1>Section Detail</h1>
+<h2>getSectionName</h2>
+<div id="wrapper">
+    <table table border=1 id="table_detail" align=left cellpadding=10>
+        <tr>
+            <th><button onclick="toggle('table_detail2');">+</button>Class Information
+            </th>
+        </tr>
+    </table>
+</div>
+<div id="wrapper">
+    <table hidden="hidden" border=1 id="table_detail2" align=left cellpadding=10>
+        <tr>
+            <th>Course ID: getCourseID</th>
+        </tr>
+        <tr>
+            <th>Units: getUnits</th>
+        </tr>
+        <tr>
+            <th>SessionDate: getSessionDate</th>
+        </tr>
+        <tr>
+            <th>Component: getLecture/getLab </th>
+        </tr>
+        <tr>
+            <th>Enrollment Status: getEnrollmentStatus</th>
+        </tr>
+    </table>
+</div>
+
+<div id="wrapper">
+    <table table border=1 id="table_detail" align=left cellpadding=10>
+        <tr>
+            <th><button onclick="toggle('table_detail3');">+</button>Class Availability
+            </th>
+        </tr>
+    </table>
+</div>
+<div id="wrapper">
+    <table hidden="hidden" border=1 id="table_detail3" align=left cellpadding=10>
+        <tr>
+            <th>Enrollment Capacity: getEnrollmentCapacity</th>
+        </tr>
+        <tr>
+            <th>Enrollment Total: getEnrollmentTotal</th>
+        </tr>
+        <tr>
+            <th>Available Seats: getAvailableSeats</th>
+        </tr>
+        <tr>
+            <th>Wait List Capacity: getWaitListCapacity</th>
+        </tr>
+        <tr>
+            <th>Wait List Total: getWaitListTotal</th>
+        </tr>
+    </table>
+</div>
+
+
+<div id="wrapper">
+    <table table border=1 id="table_detail" align=left cellpadding=10>
+        <tr>
+            <th><button onclick="toggle('table_detail4');">+</button>Meeting Information
+            </th>
+        </tr>
+    </table>
+</div>
+<div id="wrapper">
+    <table hidden="hidden" border=1 id="table_detail4" align=left cellpadding=10>
+        <tr>
+            <th>Days/Times</th>
+        </tr>
+        <tr>
+            <th>Location</th>
+        </tr>
+        <tr>
+            <th>Meeting Dates</th>
+        </tr>
+        <tr>
+            <th>Instructor</th>
+        </tr>
+
+    </table>
+</div>
+
+<div id="wrapper">
+    <table table border=1 id="table_detail" align=left cellpadding=10>
+        <tr>
+            <th><button onclick="toggle('table_detail5');">+</button>Course Information
+            </th>
+        </tr>
+    </table>
+</div>
+<div id="wrapper">
+    <table hidden="hidden" border=1 id="table_detail5" align=left cellpadding=10>
+        <tr>
+            <th>Course Description: getCourseDescription</th>
+        </tr>
+    </table>
+</div>
+
+<button onclick="OnUpdate">Return</button>
