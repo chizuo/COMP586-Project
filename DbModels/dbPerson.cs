@@ -6,7 +6,7 @@ namespace Registration.DbModels
         [Key]
         public int id { get; set; }
         public string first { get; set; }
-        public string middle { get; set; }
+        public string? middle { get; set; }
         public string last { get; set; }
         public string Gender { get; set; }
         public int birthMonth { get; set; }

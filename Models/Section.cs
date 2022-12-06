@@ -15,22 +15,21 @@ namespace Registration.Models
         public int waitListTotal;
         public string[] classDays;
         /* Time is in minutes of the day in a 24 hour clock starting at 0 (00:00) to 1439 (23:59) */
-        public int startTime;
-        public int endTime;
+        public int? startTime;
+        public int? endTime;
         public string classLocation;
         public DateOnly startDate;
         public DateOnly endDate;
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
-        public Section(Course course, int sectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, List<Student> enrollment, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor? professor = null)
+        public Section(Course course, int sectionNumber, string schoolTerm, string schoolYear, int enrollmentCap, int waitListcap, int waitListTotal, string[] classDays, int startTime, int endTime, string classLocation, string classMeetingDates, string classNote, Dictionary<int, Boolean> addNumbers, Professor? professor = null)
         {
             this.course = course;
             this.sectionNumber = sectionNumber;
             this.schoolTerm = schoolTerm;
             this.schoolYear = schoolYear;
             this.enrollmentCap = enrollmentCap;
-            this.enrollment = enrollment;
             this.waitListcap = waitListcap;
             this.waitListTotal = waitListTotal;
             this.classDays = classDays;
