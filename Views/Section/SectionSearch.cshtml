@@ -10,10 +10,25 @@
     }
 </script>
 
-
-<script> //script for hiding tables
+@*
+    <script> //script for hiding tables
     let toggle = button => {
-        let element = document.getElementById("table_detail2");
+    let element = document.getElementById("table_detail2");
+    let hidden = element.getAttribute("hidden");
+    if (hidden) {
+    element.removeAttribute("hidden");
+    button.innerText = "-";
+    }
+    else {
+    element.setAttribute("hidden", "hidden");
+    button.innerText = "+";
+    }
+    }
+    </script>
+*@
+<script> //script for collapsible tables
+    let toggle = tableID => {
+        let element = document.getElementById(tableID);
         let hidden = element.getAttribute("hidden");
         if (hidden) {
             element.removeAttribute("hidden");
@@ -30,13 +45,19 @@
 <h2>Course List</h2>
 
 <body>
-    @foreach (var sections in Model)
+    @foreach (var (sections, i) in Model.Select((sections, i) => (sections, i)))
     {
+
+        int appender = i;
+        string tableName = "table_detail" + appender.ToString();
+        string tableNameSec = tableName + "1";
+
         <div id="wrapper">
-            <table table border=1 id="table_detail" align=left cellpadding=10>
+            <table table border=1 id=@tableName align=left cellpadding=10>
 
                 <tr>
-                    <th><button onclick="toggle(this);">+</button>@sections.getCourseName() @sections.getUnits() units</th>
+                    <th><button onclick="toggle('@tableName');">+</button>@sections.getCourseName() @sections.getUnits()
+                        units</th>
                 </tr>
                 <tr id="hidden_row0" class="hidden_row">
                     <td colspan=4>
@@ -45,10 +66,7 @@
                 </tr>
 
             </table>
-        </div>
-
-        <div id="wrapper">
-            <table hidden="hidden" border=1 id="table_detail2" align=left cellpadding=10>
+            <table hidden="hidden" border=1 id=@tableNameSec align=left cellpadding=10>
                 <tr>
                     <th></th>
                     <th>Class#</th>
