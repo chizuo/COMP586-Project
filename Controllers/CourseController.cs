@@ -45,7 +45,28 @@ namespace Registration.Controllers
 
                 return View(courseObject);
             }
-            
+
+        }
+
+        public ActionResult Qualify(string? studentid, string? courseid)
+        {
+            using (var db = new Context())
+            {
+                var courseRespone = db.dbCourses.AsNoTracking().Where(c => c.course_Id == "COMP380");
+                var studentRespone = db.dbStudents.AsNoTracking().Where(s => s.student_id == studentid);
+
+                foreach (var courses in courseRespone)
+                {
+                    Console.WriteLine(courses.subject);
+                }
+
+                foreach (var student in studentRespone)
+                {
+                    Console.WriteLine(student.grade);
+                }
+            }
+
+            return View();
         }
     }
 }

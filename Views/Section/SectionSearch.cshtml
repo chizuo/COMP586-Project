@@ -1,4 +1,5 @@
-@model Registration.Models.Section
+@model IEnumerable<Section>
+
 @{
     ViewData["Title"] = "SectionSearch View";
 }
@@ -27,41 +28,44 @@
 <h2>Course List</h2>
 
 <body>
-    <div id="wrapper">
-        <table table border=1 id="table_detail" align=left cellpadding=10>
-            <tr>
-                <th><button onclick="toggle(this);">+</button>courseName courseCode -
-                    full course name (number of units)
-                </th>
-                <th onclick="showHideRow('hidden_row0');">Description</th>
-            </tr>
-            <tr id="hidden_row0" class="hidden_row">
-                <td colspan=4>
-                    getCourseDescription
-                </td>
-            </tr>
-        </table>
-    </div>
-    <div id="wrapper">
-        <table hidden="hidden" border=1 id="table_detail2" align=left cellpadding=10>
-            <tr>
-                <th>Enroll</th>
-                <th>Class#</th>
-                <th>Enrollment Size</th>
-                <th>Location</th>
-                <th>Days</th>
-                <th>Time</th>
-                <th>Professor</th>
-            </tr>
-            <tr>
-                <td>+</td>
-                <td>getClassNum</td>
-                <td>getEnrollmentSize</td>
-                <td>getLocation</td>
-                <td>getDays</td>
-                <td>getTime</td>
-                <td>getProfessor</td>
-            </tr>
-        </table>
-    </div>
+    @foreach (var sections in Model)
+    {
+        <div id="wrapper">
+            <table table border=1 id="table_detail" align=left cellpadding=10>
+
+                <tr>
+                    <th><button onclick="toggle(this);">+</button>@sections.getCourseName() @sections.getUnits() units</th>
+                </tr>
+                <tr id="hidden_row0" class="hidden_row">
+                    <td colspan=4>
+                        getCourseDescription
+                    </td>
+                </tr>
+
+            </table>
+        </div>
+
+        <div id="wrapper">
+            <table hidden="hidden" border=1 id="table_detail2" align=left cellpadding=10>
+                <tr>
+                    <th></th>
+                    <th>Class#</th>
+                    <th>Enrollment Size</th>
+                    <th>Location</th>
+                    <th>Days</th>
+                    <th>Time</th>
+                    <th>Professor</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>@sections.sectionNumber</td>
+                    <td>@sections.enrollmentCap</td>
+                    <td>@sections.classLocation</td>
+                    <td>getDays</td>
+                    <td>@sections.startTime - @sections.endTime</td>
+                    <td>getProfessor</td>
+                </tr>
+            </table>
+        </div>
+    }
 </body>
