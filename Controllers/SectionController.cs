@@ -41,5 +41,9 @@ namespace Registration.Controllers
             }
             return View(sectionsList);
         }
+        public ActionResult sectiondescription()
+        {
+            return View();
+        }
     }
 }
