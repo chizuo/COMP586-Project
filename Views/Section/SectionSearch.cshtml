@@ -10,22 +10,6 @@
     }
 </script>
 
-@*
-    <script> //script for hiding tables
-    let toggle = button => {
-    let element = document.getElementById("table_detail2");
-    let hidden = element.getAttribute("hidden");
-    if (hidden) {
-    element.removeAttribute("hidden");
-    button.innerText = "-";
-    }
-    else {
-    element.setAttribute("hidden", "hidden");
-    button.innerText = "+";
-    }
-    }
-    </script>
-*@
 <script> //script for collapsible tables
     let toggle = tableID => {
         let element = document.getElementById(tableID);
@@ -45,47 +29,40 @@
 <h2>Course List</h2>
 
 <body>
-    @foreach (var (sections, i) in Model.Select((sections, i) => (sections, i)))
-    {
+    <div class="scrollitsection">
+        @foreach (var (sections, i) in Model.Select((sections, i) => (sections, i)))
+        {
+            int appender = i;
+            string tableName = "table_detail" + appender.ToString();
 
-        int appender = i;
-        string tableName = "table_detail" + appender.ToString();
-        string tableNameSec = tableName + "1";
-
-        <div id="wrapper">
-            <table table border=1 id=@tableName align=left cellpadding=10>
-
-                <tr>
-                    <th><button onclick="toggle('@tableName');">+</button>@sections.getCourseName() @sections.getUnits()
-                        units</th>
-                </tr>
-                <tr id="hidden_row0" class="hidden_row">
-                    <td colspan=4>
-                        getCourseDescription
-                    </td>
-                </tr>
-
-            </table>
-            <table hidden="hidden" border=1 id=@tableNameSec align=left cellpadding=10>
-                <tr>
-                    <th></th>
-                    <th>Class#</th>
-                    <th>Enrollment Size</th>
-                    <th>Location</th>
-                    <th>Days</th>
-                    <th>Time</th>
-                    <th>Professor</th>
-                </tr>
-                <tr>
-                    <td>+</td>
-                    <td>@sections.sectionNumber</td>
-                    <td>@sections.enrollmentCap</td>
-                    <td>@sections.classLocation</td>
-                    <td>getDays</td>
-                    <td>@sections.startTime - @sections.endTime</td>
-                    <td>getProfessor</td>
-                </tr>
-            </table>
-        </div>
-    }
+            <div class="wrapper">
+                <table table border=1 id=@tableName align=left cellpadding=10>
+                    <tr>
+                        <th>@sections.getCourseName() (@sections.getUnits()
+                            units)</th>
+                    </tr>
+                    <table table border=1 id=@tableName align=left cellpadding=10>
+                        <tr>
+                            <th>Enr</th>
+                            <th>Detail</th>
+                            <th>Class#</th>
+                            <th>Enrollment Size</th>
+                            <th>Location</th>
+                            <th>Days</th>
+                            <th>Time</th>
+                            <th>Professor</th>
+                        </tr>
+                        <tr>
+                            <td>+</td>
+                            <th>LinkDescriptionView</th>
+                            <td>@sections.sectionNumber</td>
+                            <td>@sections.enrollmentCap</td>
+                            <td>@sections.classLocation</td>
+                            <td>@sections.getDay()</td>
+                            <td>@sections.startTime - @sections.endTime</td>
+                            <td>@sections.getProfessorFullName()</td>
+                        </tr>
+            </div>
+        }
+    </div>
 </body>

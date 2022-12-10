@@ -58,10 +58,14 @@ body {
 .scrollit {
   overflow-y:scroll;
   height:350px;
-  overflow-x: hidden
+  overflow-x: hidden;
 }
+.scrollitsection {
+  overflow-y:scroll;
+  height:700px;
+  overflow-x: hidden;
 
-
+}
 /*Table styling for Courses*/
 table#coursetable table{
   font-family: arial, sans-serif;
@@ -135,15 +139,8 @@ body {
 #wrapper h1 p {
   font-size: 20px;
 }
-
+/*-----------------*/
 #table_detail0 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-#table_detail1 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
@@ -158,15 +155,25 @@ body {
 #table_detail0 .hidden_row {
   display: none;
 }
-/**/
-#table_detail2 {
+/*-----------------*/
+#table_detail1 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
   color: #2E2E2E;
   border: #A4A4A4;
 }
-#table_detail3 {
+
+#table_detail1 tr:hover {
+  background-color: #F2F2F2;
+}
+
+#table_detail1 .hidden_row {
+  display: none;
+}
+
+/*-----------------*/
+#table_detail2 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
@@ -181,15 +188,24 @@ body {
 #table_detail2 .hidden_row {
   display: none;
 }
-/**/
-#table_detail4 {
+/*-----------------*/
+#table_detail3 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
   color: #2E2E2E;
   border: #A4A4A4;
 }
-#table_detail5 {
+
+#table_detail3 tr:hover {
+  background-color: #F2F2F2;
+}
+
+#table_detail3 .hidden_row {
+  display: none;
+}
+/*-----------------*/
+#table_detail4 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
@@ -204,15 +220,24 @@ body {
 #table_detail4 .hidden_row {
   display: none;
 }
-/**/
-#table_detail6 {
+/*-----------------*/
+#table_detail5 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
   color: #2E2E2E;
   border: #A4A4A4;
 }
-#table_detail7 {
+
+#table_detail5 tr:hover {
+  background-color: #F2F2F2;
+}
+
+#table_detail5 .hidden_row {
+  display: none;
+}
+/*-----------------*/
+#table_detail6 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
@@ -227,15 +252,8 @@ body {
 #table_detail6 .hidden_row {
   display: none;
 }
-/**/
-#table_detail8 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-#table_detail9 {
+/*-----------------*/
+#table_detail7 {
   width: 650px;
   text-align: left;
   border-collapse: collapse;
@@ -243,80 +261,10 @@ body {
   border: #A4A4A4;
 }
 
-#table_detail8 tr:hover {
+#table_detail7 tr:hover {
   background-color: #F2F2F2;
 }
 
-#table_detail8 .hidden_row {
+#table_detail7 .hidden_row {
   display: none;
 }
-/**/
-#table_detail10 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-#table_detail11 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-
-#table_detail10 tr:hover {
-  background-color: #F2F2F2;
-}
-
-#table_detail10 .hidden_row {
-  display: none;
-}
-/**/
-#table_detail12 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-#table_detail13 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-
-#table_detail12 tr:hover {
-  background-color: #F2F2F2;
-}
-
-#table_detai12 .hidden_row {
-  display: none;
-}
-/**/
-#table_detail14 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-#table_detail15 {
-  width: 650px;
-  text-align: left;
-  border-collapse: collapse;
-  color: #2E2E2E;
-  border: #A4A4A4;
-}
-
-#table_detail14 tr:hover {
-  background-color: #F2F2F2;
-}
-
-#table_detail14 .hidden_row {
-  display: none;
-}
-/*-------------------------*/
