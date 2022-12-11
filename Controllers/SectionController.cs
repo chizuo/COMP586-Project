@@ -20,19 +20,24 @@ namespace Registration.Controllers
                 var sectionRespone = db.dbSections.AsNoTracking().Where(s => s.dept == "COMP");
                 foreach (var sections in sectionRespone)
                 {
-                    var classDaysRespone = db.dbClassDays.AsNoTracking().Where(d => d.sectionNumber == sections.sectionNumber);
+                    var personRespone = db.dbPerson.Single(p => p.id == sections.professor);
+                    Professor? professor = new Professor(personRespone.id, personRespone.first, personRespone.last, personRespone.Gender, personRespone.birthMonth, personRespone.birthDay, personRespone.birthYear,
+                                                        personRespone.address, personRespone.city, personRespone.state, personRespone.zip, personRespone.personType, null,
+                                                        personRespone.middle, personRespone.email, personRespone.areaCode, personRespone.phone);
 
-                    foreach (var classDays in classDaysRespone)
+                    var classDaysRespone = db.dbClassDays.AsNoTracking().Where(d => d.sectionNumber == sections.sectionNumber).ToArray();
+                    string[] classdays = new string[classDaysRespone.Length];
+                    for (int i = 0; i < classDaysRespone.Length; i++)
                     {
-                        Console.WriteLine(classDays.class_day);
+                        classdays[i] = classDaysRespone[i].class_day;
                     }
-
+                    
                     Console.WriteLine(sections.sectionNumber);
                     var courseRespone = db.dbCourses.AsNoTracking().Where(c => c.course_Id == sections.course_Id);
                     foreach (var courses in courseRespone)
                     {
                         Course courseObject = new Course(department, courses.number, courses.subject, courses.units, courses.description, new HashSet<string>(), new HashSet<string>(), courses.isLab);
-                        Section sectionObject = new Section(courseObject, sections.sectionNumber, sections.schoolTerm, sections.schoolYear, sections.enrollmentCap, sections.waitListcap, sections.waitListTotal, new string[] { "M", "W" }, sections.startTime, sections.endTime, sections.classLocation, null, sections.classNote, null, null);
+                        Section sectionObject = new Section(courseObject, sections.sectionNumber, sections.schoolTerm, sections.schoolYear, sections.enrollmentCap, sections.waitListcap, sections.waitListTotal, classdays, sections.startTime, sections.endTime, sections.classLocation, null, sections.classNote, null, professor);
                         sectionsList.Add(sectionObject);
                         Console.WriteLine(courses.subject);
                     }
