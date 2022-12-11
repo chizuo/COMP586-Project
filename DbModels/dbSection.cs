@@ -8,6 +8,7 @@ namespace Registration.DbModels
         [Key]
         public int sectionNumber { get; set; }
         public string dept { get; set; }
+        public int? professor { get; set; }
         public string course_Id { get; set; }
         public string schoolYear { get; set; }
         public string schoolTerm { get; set; }
