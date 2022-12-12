@@ -52,8 +52,17 @@ body {
 /*Card for Professor Schedule*/
 #schedulecard{
   height: 425px;
-  width: 750px
+  width: 750px;
 }
+/*Card for Section Index */
+#sectionindexcard{
+  height: 425px;
+  width: 400px;
+  margin: 0 auto; /* Added */
+  float: none; /* Added */
+  margin-bottom: 10px; /* Added */
+}
+
 /*Scroll for Professor Schedule*/
 .scrollit {
   overflow-y:scroll;
@@ -84,7 +93,29 @@ table#coursetable tr:nth-child(even) {
   background-color: #dddddd;
 }
 /*-------------------------*/
+/*Table styling for Section Index Table*/
+.scrollitindex {
+  overflow-y:scroll;
+  height:300px;
+  overflow-x: hidden;
+}
+table#indextable{
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 400px;
+  overflow-y:scroll;
+}
 
+table#indextable td, th :hover {
+  display: block; 
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+
+table#indextable tr:nth-child(even) {
+  background-color: #dddddd;
+}
 /* Course View */
 #course {
   width: 800px;
@@ -268,3 +299,17 @@ body {
 #table_detail7 .hidden_row {
   display: none;
 }
+/*--------------*/
+.homebutton {
+    background-color: #1c87c9;
+    border: none;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/*--------------*/

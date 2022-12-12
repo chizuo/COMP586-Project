@@ -1,8 +1,11 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="w3-container">
+        <h2>Login Portals</h2>
+        <a href="@Url.Action("Index", "Student")" class="homebutton">STUDENT LOGIN</a>
+        <a href="@Url.Action("Index", "Professor")" class="homebutton">PROFESSOR LOGIN</a>
+    </div>
 </div>
