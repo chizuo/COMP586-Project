@@ -31,7 +31,7 @@ namespace Registration.Controllers
                     {
                         classdays[i] = classDaysRespone[i].class_day;
                     }
-                    
+
                     Console.WriteLine(sections.sectionNumber);
                     var courseRespone = db.dbCourses.AsNoTracking().Where(c => c.course_Id == sections.course_Id);
                     foreach (var courses in courseRespone)
@@ -47,6 +47,10 @@ namespace Registration.Controllers
             return View(sectionsList);
         }
         public ActionResult sectiondescription()
+        {
+            return View();
+        }
+        public ActionResult index()
         {
             return View();
         }

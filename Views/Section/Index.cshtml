@@ -2,21 +2,59 @@
 @{
     ViewData["Title"] = "Section View";
 }
+<script type="text/javascript">
+    function Alert() {
+        var answer = confirm("Out Of Funding, Send More Money")
+        if (answer)
+            window.location = "#";
+    }
+</script>
 
-
-@*THIS VIEW IS WORK IN PROGRESS-DISREGARD FOR NOW*@
-<h1>Section Index View</h1>
-
-<div>Section Description</div>
-
-<div id="course">
-    <h2 id="course-header"><span>Section:</span> @Model.getCourseName() (@Model.getUnits())</h2>
-    <hr>
-    <div id="course-card">
-        <div id="contents">
-            <p><span>Schedule:</span> @Model.getDay() @Model.getTime()</p>
-            <p><span>Enrollment Size:</span> @Model.enrollment</p>
-            <p><span>Description:</span> @Model.Course.description</p>
+<h1>Deparment Search</h1>
+<div class="card" id="sectionindexcard">
+    <div class="card-body">
+        <h3 class="card-title">Select Department</h3>
+        <div class="scrollitindex">
+            <table id="indextable">
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();"> A E - Aerospace Engineering </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();">A M - Applied Mechanics</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();">BANA - Business Analytics</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();">BIOL - Biology</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();">CE - Civil Engineering</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="@Url.Action("SectionSearch", "Section")" class="elements">
+                            <span>COMP - Computer Science</span>
+                        </a>
+                    </th>
+                </tr>
+                <tr>
+                    <th>
+                        <a style="text-decoration:none" href="javascript:Alert();">DEAF - Deaf Studies</a>
+                    </th>
+                </tr>
+            </table>
         </div>
+        </h3>
     </div>
 </div>
