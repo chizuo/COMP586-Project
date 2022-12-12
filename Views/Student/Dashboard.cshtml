@@ -3,6 +3,16 @@
 @{
     ViewData["Title"] = "Student Dashboard";
 }
+<div class="card" id="card">
+    <div class="card-body">
+        <h3 class="card-title">Welcome, @Model.Name</h3>
+        <p class="card-text">ID: @Model.ID</p>
+        <p class="card-text">Address: @Model.Address </p>
+        <p class="card-text">Telephone: @Model.Phone</p>
+        <p class="card-text">Email: @Model.Email</p>
+        <button onclick="OnUpdate">Update</button>
+    </div>
+</div>
 
 <div class="card" id="schedulecard">
     <div class="card-body">
@@ -10,22 +20,20 @@
         <div class="scrollit">
             <table id="coursetable">
                 <tr>
-                    <th>Class</th>
+                    <th>Course</th>
+                    <th>Section</th>
                     <th>Days/Times</th>
                     <th>Room</th>
-                    <th>Gradebook</th>
-                    <th>Students</th>
-                    <th>Start/End Date</th>
+                    <th>Instructor</th>
                 </tr>
                 @for (int i = 0; i < @Model.Sections.Count; i++)
                 {
                     <tr>
                         <th>@Model.Sections[i].getCourseName()</th>
+                        <th>@Model.Sections[i].sectionNumber</th>
                         <th>@Model.Sections[i].getDay() @Model.Sections[i].getTime()</th>
                         <th>@Model.Sections[i].classLocation</th>
-                        <th>Gradebook</th>
-                        <th>Students</th>
-                        <th>@Model.Sections[i].startDate - @Model.Sections[i].endDate</th>
+                        <th>@Model.Sections[i].getProfessorFullName()</th>
                     </tr>
                 }
             </table>
