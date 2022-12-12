@@ -54,7 +54,8 @@
                         </tr>
                         <tr>
                             <td>+</td>
-                            <th> <a href="@Url.Action("SectionDescription", "Section")" class="elements">
+                            <th> <a href="@Url.Action("SectionDescription", "Section", new {@sections.sectionNumber})"
+                                class="elements">
                                     <span>Details</span>
                                 </a></th>
                             <td>@sections.sectionNumber</td>
