@@ -4,26 +4,7 @@
     ViewData["Title"] = "SectionSearch View";
 }
 
-<script type="text/javascript"> //script for hiding rows
-    function showHideRow(row) {
-        $("#" + row).toggle();
-    }
-</script>
 
-<script> //script for collapsible tables
-    let toggle = tableID => {
-        let element = document.getElementById(tableID);
-        let hidden = element.getAttribute("hidden");
-        if (hidden) {
-            element.removeAttribute("hidden");
-            button.innerText = "-";
-        }
-        else {
-            element.setAttribute("hidden", "hidden");
-            button.innerText = "+";
-        }
-    }
-</script>
 
 <h1>Section Search View</h1>
 <h2>Course List</h2>
@@ -67,5 +48,8 @@
                         </tr>
             </div>
         }
+        <a href="@Url.Action("Index", "Section")" class="elements">
+            <button onclick="OnUpdate">Return</button>
+        </a>
     </div>
 </body>

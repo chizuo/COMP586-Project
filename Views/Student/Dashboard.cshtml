@@ -10,7 +10,6 @@
         <p class="card-text">Address: @Model.Address </p>
         <p class="card-text">Telephone: @Model.Phone</p>
         <p class="card-text">Email: @Model.Email</p>
-        <button onclick="OnUpdate">Update</button>
     </div>
 </div>
 
@@ -37,5 +36,18 @@
                     </tr>
                 }
             </table>
+        </div>
+    </div>
+    <div class="card" id="navcard">
+        <div class="card-body">
+            <a href="@Url.Action("Index", "Section")" class="elements">
+                <button onclick="OnUpdate">Enroll</button>
+            </a>
+            <a href="@Url.Action("Index", "Course")" class="elements">
+                <button onclick="OnUpdate">Courses</button>
+            </a>
+            <a href="@Url.Action("Index", "Home")" class="elements">
+                <button onclick="OnUpdate">Logout</button>
+            </a>
         </div>
     </div>
