@@ -40,7 +40,7 @@ namespace Registration.Models
             int preReqHits = 0;
             var coReqs = new HashSet<string>();
             var preReqs = new HashSet<string>();
-
+            var courses = student.coursesPassed();
             /* Convert course object to course name for comparison */
             foreach (var course in preRequisites)
             {
@@ -53,7 +53,8 @@ namespace Registration.Models
                 coReqs.Add(course);
             }
 
-            foreach (var course in student.coursesPassed())
+            
+            foreach (var course in courses)
             {
                 if (coReqs.Contains(course)) ++coReqHits;
                 if (preReqs.Contains(course)) ++preReqHits;
