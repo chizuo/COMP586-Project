@@ -23,106 +23,100 @@
 </script>
 @*<button onclick="toggle(this);">+</button>*@
 <h1>Section Detail</h1>
-<h2>getSectionName</h2>
+<h2>@Model.getCourseName()</h2>
 <div id="wrapper">
-    <table table border=1 id="table_detail" align=left cellpadding=10>
+    <table border=1 id="table_detail" align=left cellpadding=10>
         <tr>
-            <th><button onclick="toggle('table_detail2');">+</button>Class Information
+            <th><button onclick="toggle('table_detail21');">+</button>Class Information
             </th>
         </tr>
     </table>
 </div>
 <div id="wrapper">
-    <table hidden="hidden" border=1 id="table_detail2" align=left cellpadding=10>
+    <table hidden="hidden" border=1 id="table_detail21" align=left cellpadding=10>
         <tr>
-            <th>Course ID: getCourseID</th>
+            <th>Course ID: @Model.sectionNumber</th>
         </tr>
         <tr>
-            <th>Units: getUnits</th>
+            <th>Units: @Model.getUnits()</th>
         </tr>
         <tr>
-            <th>SessionDate: getSessionDate</th>
+            <th>Session Date: @Model.schoolTerm @Model.schoolYear </th>
         </tr>
         <tr>
             <th>Component: getLecture/getLab </th>
         </tr>
         <tr>
-            <th>Enrollment Status: getEnrollmentStatus</th>
+            <th>Enrollment Status: Open</th>
         </tr>
     </table>
 </div>
 
 <div id="wrapper">
-    <table table border=1 id="table_detail" align=left cellpadding=10>
+    <table border=1 id="table_detail" align=left cellpadding=10>
         <tr>
-            <th><button onclick="toggle('table_detail3');">+</button>Class Availability
+            <th><button onclick="toggle('table_detail31');">+</button>Class Availability
             </th>
         </tr>
     </table>
 </div>
 <div id="wrapper">
-    <table hidden="hidden" border=1 id="table_detail3" align=left cellpadding=10>
+    <table hidden="hidden" border=1 id="table_detail31" align=left cellpadding=10>
         <tr>
-            <th>Enrollment Capacity: getEnrollmentCapacity</th>
+            <th>Enrollment Capacity: @Model.enrollmentCap</th>
+        </tr>
+
+        <tr>
+            <th>Wait List Capacity: @Model.waitListcap</th>
         </tr>
         <tr>
-            <th>Enrollment Total: getEnrollmentTotal</th>
-        </tr>
-        <tr>
-            <th>Available Seats: getAvailableSeats</th>
-        </tr>
-        <tr>
-            <th>Wait List Capacity: getWaitListCapacity</th>
-        </tr>
-        <tr>
-            <th>Wait List Total: getWaitListTotal</th>
+            <th>Wait List Total: @Model.waitListTotal</th>
         </tr>
     </table>
 </div>
 
 
 <div id="wrapper">
-    <table table border=1 id="table_detail" align=left cellpadding=10>
+    <table border=1 id="table_detail" align=left cellpadding=10>
         <tr>
-            <th><button onclick="toggle('table_detail4');">+</button>Meeting Information
+            <th><button onclick="toggle('table_detail41');">+</button>Meeting Information
             </th>
         </tr>
     </table>
 </div>
 <div id="wrapper">
-    <table hidden="hidden" border=1 id="table_detail4" align=left cellpadding=10>
+    <table hidden="hidden" border=1 id="table_detail41" align=left cellpadding=10>
         <tr>
-            <th>Days/Times</th>
+            <th>Days/Times: @Model.getDay()</th>
         </tr>
         <tr>
-            <th>Location</th>
+            <th>Location: @Model.classLocation</th>
         </tr>
         <tr>
-            <th>Meeting Dates</th>
+            <th>Meeting Dates: @Model.startDate - @Model.endDate </th>
         </tr>
         <tr>
-            <th>Instructor</th>
+            <th>Instructor: @Model.getProfessorFullName()</th>
         </tr>
 
     </table>
 </div>
 
 <div id="wrapper">
-    <table table border=1 id="table_detail" align=left cellpadding=10>
+    <table border=1 id="table_detail" align=left cellpadding=10>
         <tr>
-            <th><button onclick="toggle('table_detail5');">+</button>Course Information
+            <th><button onclick="toggle('table_detail51');">+</button>Course Information
             </th>
         </tr>
     </table>
 </div>
 <div id="wrapper">
-    <table hidden="hidden" border=1 id="table_detail5" align=left cellpadding=10>
+    <table hidden="hidden" border=1 id="table_detail51" align=left cellpadding=10>
         <tr>
-            <th>Course Description: getCourseDescription</th>
+            <th>Course Description: @Model.getCourseDescription()</th>
         </tr>
     </table>
+    <a href="@Url.Action("SectionSearch", "Section")" class="elements">
+        <button onclick="OnUpdate">Return</button>
+    </a>
 </div>
-
-<a href="@Url.Action("SectionSearch", "Section")" class="elements">
-    <button onclick="OnUpdate">Return</button>
-</a>

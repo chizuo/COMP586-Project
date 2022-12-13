@@ -4,7 +4,7 @@ namespace Registration.Models
     public class Section
     {
         protected Course course;
-        public Course Course {get { return course; } }
+        public Course Course { get { return course; } }
         protected Professor? professor;
         public int sectionNumber;
         public string schoolYear;
@@ -19,7 +19,9 @@ namespace Registration.Models
         public int? endTime;
         public string classLocation;
         public DateOnly startDate;
+        public DateOnly getStartDate { get { return startDate; } }
         public DateOnly endDate;
+        public DateOnly getEndDate { get { return endDate; } }
         public string classNote;
         public Dictionary<int, Boolean> addNumbers = new Dictionary<int, Boolean>();
 
@@ -160,6 +162,15 @@ namespace Registration.Models
             st.ToString("HH:mm tt");
             DateTime et = DateTime.ParseExact(endTime.ToString(), "HHmm", null, DateTimeStyles.None);
             return st.ToString("HH:mm tt") + " - " + et.ToString("HH:mm tt");
+        }
+
+        public int getSectionID()
+        {
+            return sectionNumber;
+        }
+        public string getCourseDescription()
+        {
+            return course.description;
         }
     }
 }

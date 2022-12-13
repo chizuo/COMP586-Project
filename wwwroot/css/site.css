@@ -54,6 +54,11 @@ body {
   height: 425px;
   width: 750px;
 }
+/*Card for Student Nav*/
+#navcard{
+  height: 75px;
+  width: 350px;
+}
 /*Card for Section Index */
 #sectionindexcard{
   height: 425px;
@@ -171,6 +176,23 @@ body {
   font-size: 20px;
 }
 /*-----------------*/
+#table_detail {
+  width: 650px;
+  text-align: left;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  border: #A4A4A4;
+}
+
+#table_detail tr:hover {
+  background-color: #F2F2F2;
+}
+
+
+#table_detail .hidden_row {
+  display: none;
+}
+/*-----------------*/
 #table_detail0 {
   width: 650px;
   text-align: left;
@@ -182,6 +204,7 @@ body {
 #table_detail0 tr:hover {
   background-color: #F2F2F2;
 }
+
 
 #table_detail0 .hidden_row {
   display: none;
@@ -313,3 +336,70 @@ body {
     cursor: pointer;
 }
 /*--------------*/
+#table_detail21 {
+  width: 650px;
+  text-align: left;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  border: #A4A4A4;
+}
+
+#table_detail21 {
+  background-color: #F2F2F2;
+}
+
+
+#table_detail21 .hidden_row {
+  display: none;
+}
+/*--------------*/
+#table_detail31 {
+  width: 650px;
+  text-align: left;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  border: #A4A4A4;
+}
+
+#table_detail31 {
+  background-color: #F2F2F2;
+}
+
+
+#table_detail .hidden_row {
+  display: none;
+}
+/*--------------*/
+#table_detail41 {
+  width: 650px;
+  text-align: left;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  border: #A4A4A4;
+}
+
+#table_detail41 {
+  background-color: #F2F2F2;
+}
+
+
+#table_detail .hidden_row {
+  display: none;
+}
+/*--------------*/
+#table_detail51 {
+  width: 650px;
+  text-align: left;
+  border-collapse: collapse;
+  color: #2E2E2E;
+  border: #A4A4A4;
+}
+
+#table_detail51{
+  background-color: #F2F2F2;
+}
+
+
+#table_detail51 .hidden_row {
+  display: none;
+}
