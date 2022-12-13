@@ -8,6 +8,6 @@ namespace Registration.DbModels
         public string student_id { get; set; }
         public int sectionNumber { get; set; }
         public string course_id { get; set; }
-        public string grade { get; set; }
+        public double grade { get; set; }
     }
 }
